@@ -1,0 +1,1133 @@
+// --------------------------------------------------
+// Aura FX
+//
+
+// Red Aura - Strength
+Actor DRPGRedAura
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle None
+    Var Int user_radius;
+    Var Int user_height;
+    States
+    {
+    Spawn:
+        TNT1 A 2 NoDelay A_SpawnItemEx ("DRPGRedAuraParticle", 0,0,0, FRandom (0.1, 1.5 + (user_radius / 10)),0,FRandom (-2.5, 1.25), Random (0, 360))
+        Stop
+    }
+}
+
+Actor DRPGRedAuraParticle
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle Add
+    Alpha 0.5
+    Scale 0.08
+    States
+    {
+    Spawn:
+        AUEF A 1 Bright
+        TNT1 A 0 A_FadeOut (0.5 / 35.0)
+        TNT1 A 0 A_ScaleVelocity (0.97)
+        TNT1 A 0 A_ChangeVelocity (0, 0, 0.125)
+        Loop
+    }
+}
+
+// White Aura - XP
+Actor DRPGWhiteAura
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle None
+    Var Int user_radius;
+    Var Int user_height;
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay A_JumpIf (CallACS ("GetTimer") % 4, "DoNothing")
+        TNT1 A 0 A_SpawnItemEx ("DRPGWhiteAuraParticle",
+            Cos ((-CallACS ("GetTimer") / 60.0) * 360.0 + 180.0) * (user_radius * 2.0),
+            Sin ((-CallACS ("GetTimer") / 60.0) * 360.0 + 180.0) * (user_radius * 2.0),
+            Sin ((-CallACS ("GetTimer") / 50.0) * 360.0 + 180.0) * (user_height / 4),
+            0,0,0, 0)
+        TNT1 A 2 A_SpawnItemEx ("DRPGWhiteAuraParticle",
+            Cos ((CallACS ("GetTimer") / 50.0) * 360.0) * (user_radius * 2.0),
+            Sin ((CallACS ("GetTimer") / 50.0) * 360.0) * (user_radius * 2.0),
+            Sin ((CallACS ("GetTimer") / 60.0) * 360.0) * (user_height / 4),
+            0,0,0, 0)
+        Stop
+    DoNothing:
+        TNT1 A 2
+        Stop
+    }
+}
+
+Actor DRPGWhiteAuraParticle
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle Add
+    Alpha 1.0
+    Scale 0.075
+    States
+    {
+    Spawn:
+        AUEF B 1 Bright
+        TNT1 A 0 A_FadeOut (1.0 / 35.0)
+        TNT1 A 0 A_SetScale (ScaleX - 0.0021)
+        Loop
+    }
+}
+
+// Purple Aura - Regeneration
+Actor DRPGPurpleAura
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle None
+    Var Int user_radius;
+    Var Int user_height;
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay A_JumpIf (CallACS ("GetTimer") % 6, "DoNothing")
+        TNT1 A 2 A_SpawnItemEx ("DRPGPurpleAuraParticle",
+            Random (-user_radius,user_radius),
+            Random (-user_radius,user_radius),
+            Random (-(user_height/2),user_height/2),
+            0,0,1.0, 0)
+        Stop
+    DoNothing:
+        TNT1 A 2
+        Stop
+    }
+}
+
+// Same effect as Purple Aura but without the light
+Actor DRPGRegenSphereEffect : DRPGPurpleAura {}
+
+Actor DRPGPurpleAuraParticle
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle Add
+    Alpha 1.0
+    Scale 0.0375
+    States
+    {
+    Spawn:
+        AUEF C 1 Bright
+        TNT1 A 0 A_FadeOut (1.0 / 35.0)
+        TNT1 A 0 A_SetScale (ScaleX - 0.001, ScaleY + 0.001)
+        Loop
+    }
+}
+
+// Different version used for monsters' Purple Aura healing
+Actor DRPGMonsterHealParticle : DRPGPurpleAuraParticle
+{
+    ReactionTime 35
+    States
+    {
+    Spawn:
+        AUEF C 1 Bright A_CountDown
+        TNT1 A 0 A_ScaleVelocity (0.95)
+        TNT1 A 0 A_ChangeVelocity (0, 0, 0.1, 0)
+        Loop
+    Death:
+        AUEF C 1 Bright
+        TNT1 A 0 A_ScaleVelocity (0.95)
+        TNT1 A 0 A_ChangeVelocity (0, 0, 0.1, 0)
+        TNT1 A 0 A_FadeOut (1.0 / 35.0)
+        TNT1 A 0 A_SetScale (ScaleX - 0.001, ScaleY + 0.001)
+        Loop
+    }
+}
+
+
+// Orange Aura - Agility
+Actor DRPGOrangeAura
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle None
+    Var Int user_radius;
+    Var Int user_height;
+    States
+    {
+    Spawn:
+        TNT1 A 2 NoDelay A_SpawnItemEx ("DRPGOrangeAuraParticle", -8,0,0, 0,0,0, 0)
+        Stop
+    }
+}
+
+Actor DRPGOrangeAuraParticle
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle Add
+    Alpha 0.01
+    Scale 0.2
+    States
+    {
+    Spawn:
+        AUEF DDDDDDDDDDDDDDD 1 NoDelay Bright A_FadeIn (0.1 / 15.0)
+        AUEF D 1 Bright A_FadeOut (0.1 / 15.0)
+        Wait
+    }
+}
+
+// Green Aura - Defense
+Actor DRPGGreenAura
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle None
+    Var Int user_radius;
+    Var Int user_height;
+    Var Int user_cycle;
+    States
+    {
+    Spawn:
+        TNT1 A 0 A_JumpIf (user_cycle >= 360, "Done")
+        TNT1 A 0 A_SpawnItemEx ("DRPGGreenAuraParticle",
+            Cos (user_cycle) * (user_radius * 2),
+            Sin (user_cycle) * (user_radius * 2),
+            Sin (CallACS ("GetTimer") * 3 + user_cycle) * (user_height / 4),
+            0,0,0, 0)
+        TNT1 A 0 A_SetUserVar ("user_cycle", user_cycle + 20)
+        Loop
+    Done:
+        TNT1 A 2
+        Stop
+    }
+}
+
+Actor DRPGGreenAuraParticle
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle Add
+    Alpha 1.0
+    Scale 0.025
+    States
+    {
+    Spawn:
+        AUEF E 1 Bright
+        TNT1 A 0 A_FadeOut (1.0 / 4.0)
+        Loop
+    }
+}
+
+// Pink Aura - Vitality
+Actor DRPGPinkAura
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    Var Int user_radius;
+    Var Int user_height;
+    RenderStyle None
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay A_JumpIf (CallACS ("GetTimer") % 8, "DoNothing")
+        TNT1 A 2 A_SpawnItemEx ("DRPGPinkAuraParticle",
+            Random (-user_radius,user_radius),
+            Random (-user_radius,user_radius),
+            Random (-(user_height/2),user_height/2),
+            0,0,1.0, 0)
+        Stop
+    DoNothing:
+        TNT1 A 2
+        Stop
+    }
+}
+
+Actor DRPGPinkAuraParticle
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle Add
+    Alpha 1.0
+    Scale 0.0375
+    States
+    {
+    Spawn:
+        AUEF F 1 Bright
+        TNT1 A 0 A_FadeOut (1.0 / 35.0)
+        TNT1 A 0 A_SetScale (ScaleX - 0.001)
+        Loop
+    }
+}
+
+// Blue Aura - Energy
+Actor DRPGCyanAura
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle None
+    Var Int user_radius;
+    Var Int user_height;
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay A_JumpIf (CallACS ("GetTimer") % 8, "DoNothing")
+        TNT1 A 2 A_SpawnItemEx ("DRPGCyanAuraParticle",
+            Random (-user_radius,user_radius),
+            Random (-user_radius,user_radius),
+            Random (-(user_height/2),user_height/2),
+            0,0,0, 0)
+        Stop
+    DoNothing:
+        TNT1 A 2
+        Stop
+    }
+}
+
+Actor DRPGCyanAuraParticle
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle Add
+    Alpha 0.66
+    Scale 0.025
+    States
+    {
+    Spawn:
+        AUEF G 1 Bright
+        TNT1 A 0 A_FadeOut (0.66 / 35.0)
+        TNT1 A 0 A_SetScale (ScaleX + 0.001)
+        Loop
+    }
+}
+
+// Dark Blue Aura - Capacity
+Actor DRPGBlueAura
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle None
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay A_JumpIf (CallACS ("GetTimer") % 20, "DoNothing")
+        TNT1 A 2 A_SpawnItemEx ("DRPGBlueAuraParticle", 8,0,0, 0,0,0, 0)
+        Stop
+    DoNothing:
+        TNT1 A 2
+        Stop
+    }
+}
+
+Actor DRPGBlueAuraParticle
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle Add
+    Alpha 0.33
+    Scale 0.15
+    States
+    {
+    Spawn:
+        AUEF H 1 Bright
+        TNT1 A 0 A_FadeOut (0.33 / 35.0)
+        TNT1 A 0 A_SetScale (ScaleX + 0.0014)
+        Loop
+    }
+}
+
+// Yellow Aura - Luck
+Actor DRPGYellowAura
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle None
+    Var Int user_radius;
+    Var Int user_height;
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay A_JumpIf (CallACS ("GetTimer") % 8, "DoNothing")
+        TNT1 A 2 A_SpawnItemEx ("DRPGYellowAuraParticle",
+            Random (-user_radius,user_radius),
+            Random (-user_radius,user_radius),
+            Random (-(user_height/2),user_height/2),
+            0,0,0, 0)
+        TNT1 A 0 A_JumpIf (!(CallACS ("GetTimer") % 35) && !Random (0, 2), "DropCoin")
+        Stop
+    DropCoin:
+        TNT1 A 0 A_SpawnItemEx ("DRPGLuckAuraCoin", 0,0,0, FRandom (-3,3),FRandom (-3,3),FRandom (-3,3), 0)
+    DoNothing:
+        TNT1 A 2
+        Stop
+    }
+}
+
+Actor DRPGYellowAuraParticle
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle Add
+    Alpha 1.0
+    Scale 0.075
+    States
+    {
+    Spawn:
+        AUEF I 1 Bright
+        TNT1 A 0 A_FadeOut (1.0 / 35.0)
+        TNT1 A 0 A_SetScale (ScaleX - 0.0021)
+        Loop
+    }
+}
+
+Actor DRPGLuckAuraCoin
+{
+    Projectile
+    +ThruActors
+    -NoGravity
+    +NotOnAutomap
+    Gravity 0.33
+    Damage 0
+    Speed 4
+    BounceCount 2
+    BounceType Doom
+    BounceSound "skills/coinbounce"
+    DeathSound "skills/coinbounce"
+    
+    States
+    {
+    Spawn:
+        AUEF J -1 Bright
+        Stop
+    Death:
+        AUEF J 70 Bright
+        AUEF J 1 Bright A_FadeOut (1.0 / 20.0)
+        Wait
+    }
+}
+
+// Black Aura - Miniboss
+Actor DRPGBlackAura
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle None
+    Var Int user_radius;
+    Var Int user_height;
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay A_JumpIf (CallACS ("GetTimer") % 6 > 0, 2)
+        TNT1 A 0 A_SpawnItemEx ("DRPGBlackAuraFloorFire",
+            Random (-user_radius,user_radius),
+            Random (-user_radius,user_radius),
+            -(user_height / 2) + 8, 0,0,0, 0)
+        TNT1 A 0 A_JumpIf (CallACS ("GetTimer") % 8 > 0, 5)
+        TNT1 AA 0 A_SpawnItemEx ("DRPGBlackAuraDarkPuff1",
+            0,
+            Random (user_radius,user_radius * 2),
+            Random (-(user_height / 2),(user_height / 2)),
+            1.0,0,0, Random (0, 360), 0, 128)
+        TNT1 AA 0 A_SpawnItemEx ("DRPGBlackAuraDarkPuff2",
+            0,
+            Random (user_radius,user_radius * 2),
+            Random (-(user_height / 2),(user_height / 2)),
+            1.0,0,0, Random (0, 360), 0, 128)
+        TNT1 A 2
+        Stop
+    }
+}
+
+Actor DRPGBlackAuraFloorFire
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle Translucent
+    
+    States
+    {
+    Spawn:
+        MBAU A 2 Bright
+        TNT1 A 0 A_FadeOut (0.05)
+        TNT1 A 0 A_SetScale (ScaleX - 0.05)
+        MBAU B 2 Bright
+        TNT1 A 0 A_FadeOut (0.05)
+        TNT1 A 0 A_SetScale (ScaleX - 0.05)
+        MBAU C 2 Bright
+        TNT1 A 0 A_FadeOut (0.05)
+        TNT1 A 0 A_SetScale (ScaleX - 0.05)
+        MBAU D 2 Bright
+        TNT1 A 0 A_FadeOut (0.05)
+        TNT1 A 0 A_SetScale (ScaleX - 0.05)
+        MBAU E 2 Bright
+        TNT1 A 0 A_FadeOut (0.05)
+        TNT1 A 0 A_SetScale (ScaleX - 0.05)
+        MBAU F 2 Bright
+        TNT1 A 0 A_FadeOut (0.05)
+        TNT1 A 0 A_SetScale (ScaleX - 0.05)
+        MBAU G 2 Bright
+        TNT1 A 0 A_FadeOut (0.05)
+        TNT1 A 0 A_SetScale (ScaleX - 0.05)
+        MBAU H 2 Bright
+        TNT1 A 0 A_FadeOut (0.05)
+        TNT1 A 0 A_SetScale (ScaleX - 0.05)
+        MBAU I 2 Bright
+        TNT1 A 0 A_FadeOut (0.05)
+        TNT1 A 0 A_SetScale (ScaleX - 0.05)
+        MBAU J 2 Bright
+        TNT1 A 0 A_FadeOut (0.05)
+        TNT1 A 0 A_SetScale (ScaleX - 0.05)
+        MBAU K 2 Bright
+        TNT1 A 0 A_FadeOut (0.05)
+        TNT1 A 0 A_SetScale (ScaleX - 0.05)
+        MBAU L 2 Bright
+        TNT1 A 0 A_FadeOut (0.05)
+        TNT1 A 0 A_SetScale (ScaleX - 0.05)
+        MBAU M 2 Bright
+        TNT1 A 0 A_FadeOut (0.05)
+        TNT1 A 0 A_SetScale (ScaleX - 0.05)
+        Loop
+    }
+}
+
+Actor DRPGBlackAuraDarkPuff1
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle Translucent
+    
+    States
+    {
+    Spawn:
+        MBAU NNNOOOPPPQQQRRR 2 Bright A_FadeOut (0.05)
+        Loop
+    }
+}
+
+Actor DRPGBlackAuraDarkPuff2 : DRPGBlackAuraDarkPuff1
+{
+    StencilColor "00 00 00"
+}
+
+// Simple sprite versions
+Actor DRPGSimpleAuraSprite
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    +Synchronized
+    RenderStyle Translucent
+    Alpha 0.5
+    Scale 0.66
+    States
+    {
+    Spawn:
+        TNT1 A 2
+        Stop
+    }
+}
+
+Actor DRPGRedAuraIndicator : DRPGSimpleAuraSprite
+{
+    States
+    {
+    Spawn:
+        SAUR A 2 Bright
+        Stop
+    }
+}
+
+Actor DRPGGreenAuraIndicator : DRPGSimpleAuraSprite
+{
+    States
+    {
+    Spawn:
+        SAUR B 2 Bright
+        Stop
+    }
+}
+
+Actor DRPGWhiteAuraIndicator : DRPGSimpleAuraSprite
+{
+    States
+    {
+    Spawn:
+        SAUR J 2 Bright
+        Stop
+    }
+}
+
+Actor DRPGPinkAuraIndicator : DRPGSimpleAuraSprite
+{
+    States
+    {
+    Spawn:
+        SAUR C 2 Bright
+        Stop
+    }
+}
+
+Actor DRPGCyanAuraIndicator : DRPGSimpleAuraSprite
+{
+    States
+    {
+    Spawn:
+        SAUR D 2 Bright
+        Stop
+    }
+}
+
+Actor DRPGPurpleAuraIndicator : DRPGSimpleAuraSprite
+{
+    States
+    {
+    Spawn:
+        SAUR E 2 Bright
+        Stop
+    }
+}
+
+Actor DRPGOrangeAuraIndicator : DRPGSimpleAuraSprite
+{
+    States
+    {
+    Spawn:
+        SAUR F 2 Bright
+        Stop
+    }
+}
+
+Actor DRPGBlueAuraIndicator : DRPGSimpleAuraSprite
+{
+    States
+    {
+    Spawn:
+        SAUR G 2 Bright
+        Stop
+    }
+}
+
+Actor DRPGYellowAuraIndicator : DRPGSimpleAuraSprite
+{
+    States
+    {
+    Spawn:
+        SAUR H 2 Bright
+        Stop
+    }
+}
+
+Actor DRPGBlackAuraIndicator : DRPGSimpleAuraSprite
+{
+    States
+    {
+    Spawn:
+        SAUR I 2 Bright
+        Stop
+    }
+}
+
+// Friendly Aura - Applied to friendly summons/monsters
+Actor DRPGFriendlyAura
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle None
+    States
+    {
+    Spawn:
+        TNT1 A 2 NoDelay
+        Stop
+    }
+}
+
+Actor DRPGFriendlyIndicator
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    Scale 0.05
+    States
+    {
+    Spawn:
+        GHRT A 1 Bright A_FadeOut (0.25)
+        Wait
+    }
+}
+
+// --------------------------------------------------
+// Radiation FX
+//
+
+actor DRPGRadiationGlow
+{
+    +NoTimeFreeze
+    +NoInteraction
+    +NotOnAutomap
+    
+    Scale 0.05
+    
+    States
+    {
+    Spawn:
+        TNT1 A 2 NoDelay A_SpawnItemEx("DRPGRadiationParticle", FRandom(-32, 32), FRandom(-32, 32), FRandom(-32, 32), 0, 0, 0, 0, 0, 250)
+        Stop
+    }
+}
+
+actor DRPGRadiationGlow2 : DRPGRadiationGlow
+{
+    var int user_dissipation;
+    
+    States
+    {
+    Spawn:
+        TNT1 AAAAAAAAAA 0
+    Idle:
+        TNT1 A 0 A_PlaySound("misc/radiation", CHAN_AUTO, 1.0, true, ATTN_NORM)
+        TNT1 AAAAAAAAAAAAAAAAAA 4 A_SpawnItemEx("DRPGRadiationParticle", FRandom(-32, 32), FRandom(-32, 32), FRandom(-32, 32), 0, 0, 0, 0, 0, 128)
+        TNT1 A 0 A_SetUservar("user_dissipation", user_dissipation + (8 * Random(1, 2)))
+        TNT1 A 0 A_Jump(256 - user_dissipation, "Idle")
+    Death:
+        TNT1 A 0
+        Stop
+    }
+}
+
+actor DRPGRadiationParticle
+{
+    +NoInteraction
+    +NotOnAutomap
+    RenderStyle Add
+    Scale 0.025
+    
+    States
+    {
+    Spawn:
+        PTCL E 1 Bright NoDelay A_CheckSight("Death")
+        PTCL E 0 A_ChangeVelocity(FRandom(-0.25,0.25),FRandom(-0.25,0.25),FRandom(-0.25,0.25))
+        PTCL E 0 A_FadeOut(0.019)
+        PTCL E 0 A_SetScale(ScaleX - 0.0005)
+        Loop
+    Death:
+        TNT1 A 0
+        Stop
+    }
+}
+
+// --------------------------------------------------
+// Generic FX
+//
+
+// Generic blingy particle
+actor DRPGBlingParticle
+{
+    +NOTIMEFREEZE
+    +NOINTERACTION
+    +NOTONAUTOMAP
+    
+    Scale 0.025
+    
+    RenderStyle Add
+    
+    States
+    {
+    Spawn:
+        AUEF B 1 Bright
+        TNT1 A 0 A_FadeOut(0.05)
+        Loop
+    }
+}
+
+// EP Focus
+actor DRPGEPFocusAura
+{
+    +NOTIMEFREEZE
+    +NOINTERACTION
+    +NOTONAUTOMAP
+    
+    XScale 2.0
+    YScale 1.0
+    
+    Alpha 0.5
+    RenderStyle Add
+    Translation "0 : 255 = %[0.0, 0.0, 0.0] : [0.0, 0.25, 0.5]"
+    
+    States
+    {
+    Spawn:
+        PBEA A 1 Bright
+        TNT1 A 0 A_FadeOut(0.025)
+        Loop
+    }
+}
+
+// --------------------------------------------------
+// Transport particles and FX
+//
+
+actor DRPGTransportEffect
+{
+    var int user_loop;
+    var int user_angle;
+    var int user_height;
+    var int user_direction;
+    var int user_iterations;
+    
+    +NOTIMEFREEZE
+    +NOINTERACTION
+    +NOTONAUTOMAP
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay A_SetUserVar("user_direction", 1)
+    Spawn2:
+        TNT1 A 0 A_SpawnItemEx("DRPGTransportEffectParticle",
+            Cos(user_angle) * 32,
+            Sin(user_angle) * 32,
+            user_height, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+        TNT1 A 0 A_Quake(9, 2, 0, 64, "")
+        TNT1 A 0 A_SetUserVar("user_angle", user_angle + 11.25)
+        TNT1 A 0 A_JumpIf(user_loop >= 8, "ReLoop")
+        TNT1 A 0 A_JumpIf(user_Angle >= 360 && user_direction == 1, "MoveUp")
+        TNT1 A 0 A_JumpIf(user_Angle >= 360 && user_direction == -1, "MoveDown")
+        Loop
+    MoveUp:
+        TNT1 A 0 A_SetUserVar("user_loop", user_loop + 1)
+        TNT1 A 0 A_SetUserVar("user_angle", 0)
+        TNT1 A 2 A_SetUserVar("user_height", user_height + 8)
+        Goto Spawn2
+    MoveDown:
+        TNT1 A 0 A_SetUserVar("user_loop", user_loop + 1)
+        TNT1 A 0 A_SetUserVar("user_angle", 0)
+        TNT1 A 2 A_SetUserVar("user_height", user_height - 8)
+        Goto Spawn2
+    ReLoop:
+        TNT1 A 0 A_SetUserVar("user_loop", 0)
+        TNT1 A 0 A_SetUserVar("user_direction", -user_direction)
+        TNT1 A 0 A_SetUserVar("user_iterations", user_iterations + 1)
+        TNT1 A 0 A_JumpIf(user_iterations >= 4, "Done")
+        TNT1 A 0 A_JumpIf(user_direction == 1, "SetDown")
+        TNT1 A 0 A_JumpIf(user_direction == -1, "SetUp")
+        Stop
+    SetUp:
+        TNT1 A 0 A_SetUserVar("user_height", 7 * 8)
+        Goto Spawn2
+    SetDown:
+        TNT1 A 0 A_SetUserVar("user_height", 0)
+        Goto Spawn2
+    Done:
+        TNT1 A 0
+        Stop
+    }
+}
+
+actor DRPGTransportEffectParticle
+{
+    +NOTIMEFREEZE
+    +NOINTERACTION
+    +NOTONAUTOMAP
+    
+    YScale 0.125
+    
+    Alpha 0.5
+    RenderStyle AddStencil
+    
+    StencilColor "0096FF"
+    
+    Translation "0 : 255 = %[0.0, 0.0, 0.0] : [0.0, 0.25, 0.0]"
+    
+    States
+    {
+    Spawn:
+        PBEA A 1 Bright
+        TNT1 A 0 A_FadeOut(0.025)
+        Loop
+    }
+}
+
+actor DRPGTransportSetNonShootable : CustomInventory
+{
+    Inventory.MaxAmount 0
+    +INVENTORY.AUTOACTIVATE
+    
+    States
+    {
+    Pickup:
+        TNT1 A 0 A_ChangeFlag("SOLID", false)
+        TNT1 A 0 A_ChangeFlag("SHOOTABLE", false)
+        TNT1 A 0 A_ChangeFlag("NONSHOOTABLE", true)
+        Stop
+    }
+}
+
+actor DRPGTransportUnsetNonShootable : CustomInventory
+{
+    Inventory.MaxAmount 0
+    +INVENTORY.AUTOACTIVATE
+    
+    States
+    {
+    Pickup:
+        TNT1 A 0 A_ChangeFlag("SOLID", true)
+        TNT1 A 0 A_ChangeFlag("SHOOTABLE", true)
+        TNT1 A 0 A_ChangeFlag("NONSHOOTABLE", false)
+        Stop
+    }
+}
+
+// --------------------------------------------------
+// Immunity Crystal beams and FX
+//
+
+Actor DRPGImmunityCrystalPulse
+{
+    +NOGRAVITY
+    +NOTIMEFREEZE
+    +NOINTERACTION
+    +NOTONAUTOMAP
+    
+    RenderStyle Add
+    Alpha 0.5
+}
+
+Actor DRPGImmunityCrystalPulseMelee : DRPGImmunityCrystalPulse
+{
+    States
+    {
+    Spawn:
+        CRYS A 1 Bright
+        TNT1 A 0 A_FadeOut(0.1, true)
+        TNT1 A 0 A_SetScale(ScaleX + 0.1, ScaleY + 0.1)
+        Loop
+    }
+}
+
+Actor DRPGImmunityCrystalPulseBullet : DRPGImmunityCrystalPulse
+{
+    States
+    {
+    Spawn:
+        CRYS B 1 Bright
+        TNT1 A 0 A_FadeOut(0.1, true)
+        TNT1 A 0 A_SetScale(ScaleX + 0.1, ScaleY + 0.1)
+        Loop
+    }
+}
+
+Actor DRPGImmunityCrystalPulseFire : DRPGImmunityCrystalPulse
+{
+    States
+    {
+    Spawn:
+        CRYS C 1 Bright
+        TNT1 A 0 A_FadeOut(0.1, true)
+        TNT1 A 0 A_SetScale(ScaleX + 0.1, ScaleY + 0.1)
+        Loop
+    }
+}
+
+Actor DRPGImmunityCrystalPulsePlasma : DRPGImmunityCrystalPulse
+{
+    States
+    {
+    Spawn:
+        CRYS D 1 Bright
+        TNT1 A 0 A_FadeOut(0.1, true)
+        TNT1 A 0 A_SetScale(ScaleX + 0.1, ScaleY + 0.1)
+        Loop
+    }
+}
+
+Actor DRPGImmunityCrystalPulseLightning : DRPGImmunityCrystalPulse
+{
+    States
+    {
+    Spawn:
+        CRYS E 1 Bright
+        TNT1 A 0 A_FadeOut(0.1, true)
+        TNT1 A 0 A_SetScale(ScaleX + 0.1, ScaleY + 0.1)
+        Loop
+    }
+}
+
+Actor DRPGImmunityCrystalPulseToxic : DRPGImmunityCrystalPulse
+{
+    States
+    {
+    Spawn:
+        CRYS F 1 Bright
+        TNT1 A 0 A_FadeOut(0.1, true)
+        TNT1 A 0 A_SetScale(ScaleX + 0.1, ScaleY + 0.1)
+        Loop
+    }
+}
+
+Actor DRPGImmunityCrystalPulseRadiation : DRPGImmunityCrystalPulse
+{
+    States
+    {
+    Spawn:
+        CRYS G 1 Bright
+        TNT1 A 0 A_FadeOut(0.1, true)
+        TNT1 A 0 A_SetScale(ScaleX + 0.1, ScaleY + 0.1)
+        Loop
+    }
+}
+
+Actor DRPGImmunityCrystalBeam
+{
+    +NOTIMEFREEZE
+    +NOINTERACTION
+    +NOTONAUTOMAP
+    
+    Scale 4.0
+    
+    Alpha 0.5
+    RenderStyle Add
+    
+    States
+    {
+    Spawn:
+        PBEA A 1 Bright
+        TNT1 A 0 A_FadeOut(0.005)
+        Loop
+    }
+}
+
+Actor DRPGImmunityCrystalBeamMelee : DRPGImmunityCrystalBeam
+{
+    Translation "0 : 255 = %[0.0, 0.0, 0.0] : [0.25, 0.33, 0.25]"
+}
+
+Actor DRPGImmunityCrystalBeamBullet : DRPGImmunityCrystalBeam
+{
+    Translation "0 : 255 = %[0.0, 0.0, 0.0] : [1.0, 1.0, 1.0]"
+}
+
+Actor DRPGImmunityCrystalBeamFire : DRPGImmunityCrystalBeam
+{
+    Translation "0 : 255 = %[0.0, 0.0, 0.0] : [0.5, 0.0, 0.0]"
+}
+
+Actor DRPGImmunityCrystalBeamPlasma : DRPGImmunityCrystalBeam
+{
+    Translation "0 : 255 = %[0.0, 0.0, 0.0] : [0.0, 0.0, 0.5]"
+}
+
+Actor DRPGImmunityCrystalBeamLightning : DRPGImmunityCrystalBeam
+{
+    Translation "0 : 255 = %[0.0, 0.0, 0.0] : [0.0, 0.0, 1.0]"
+}
+
+Actor DRPGImmunityCrystalBeamToxic : DRPGImmunityCrystalBeam
+{
+    Translation "0 : 255 = %[0.0, 0.0, 0.0] : [0.0, 0.5, 0.0]"
+}
+
+Actor DRPGImmunityCrystalBeamRadiation : DRPGImmunityCrystalBeam
+{
+    Translation "0 : 255 = %[0.0, 0.0, 0.0] : [0.0, 1.0, 0.0]"
+}
+
+Actor DRPGImmunityCrystalDebris
+{
+    RenderStyle Add
+    Gravity 0.5
+    BounceType Classic
+    BounceFactor 1.0
+    WallBounceFactor 1.0
+    BounceCount 0x7FFFFFFF
+    
+    +BOUNCEONWALLS
+    +BOUNCEONFLOORS
+    +BOUNCEONCEILINGS
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay A_PlaySound("powerups/crystalpulse", CHAN_6, 1.0, true, 0.5)
+        CRYS H 1
+        TNT1 A 0 A_FadeOut(0.0025, true)
+        TNT1 A 0 A_Explode(10, 1)
+        Goto Spawn+1
+    }
+}
+
+
+// --------------------------------------------------
+// Turret Particles and FX
+//
+
+actor DRPGTurretTeleport
+{
+    var int user_loop;
+    var int user_angle;
+    var int user_height;
+    
+    +NOTIMEFREEZE
+    +NOINTERACTION
+    +NOTONAUTOMAP
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 A_SpawnItemEx("DRPGTurretTeleportParticle",
+            Cos(user_angle) * 32,
+            Sin(user_angle) * 32,
+            user_height, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+        TNT1 A 0 A_SetUserVar("user_angle", user_angle + 11.25)
+        TNT1 A 0 A_JumpIf(user_loop >= 8, "Done")
+        TNT1 A 0 A_JumpIf(user_Angle >= 360, "MoveUp")
+        Loop
+    MoveUp:
+        TNT1 A 0 A_SetUserVar("user_loop", user_loop + 1)
+        TNT1 A 0 A_SetUserVar("user_angle", 0)
+        TNT1 A 0 A_SetUserVar("user_height", user_height + 8)
+        Goto Spawn
+    Done:
+        TNT1 A 0
+        Stop
+    }
+}
+
+actor DRPGTurretTeleportParticle : DRPGTransportEffectParticle
+{
+    Alpha 0.25
+    
+    States
+    {
+    Spawn:
+        PBEA A 1 Bright
+        TNT1 A 0 A_FadeOut(0.005)
+        TNT1 A 0 ThrustThingZ(0, 4, 0, 0)
+        TNT1 A 0 A_SetScale(ScaleX + 0.001, ScaleY + 0.001)
+        Loop
+    }
+}

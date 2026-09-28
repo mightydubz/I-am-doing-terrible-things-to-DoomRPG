@@ -1,0 +1,224 @@
+
+// Generic Loot base
+Actor DRPGLoot : Inventory
+{
+    Inventory.Amount 1
+    Inventory.DefMaxAmount
+    Inventory.InterHubAmount 1000
+    Inventory.PickupMessage "You picked up a Generic Loot item."
+    Inventory.PickupSound "items/loot"
+    
+    +COUNTITEM
+}
+
+// Medical Supplies
+Actor DRPGLootMedicalSupplies : DRPGLoot
+{
+    Inventory.PickupMessage "You picked up medical supplies."
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        LT01 A -1
+        Stop
+    }
+}
+
+// Chemicals
+Actor DRPGLootChemicals : DRPGLoot
+{
+    Scale 0.25
+    
+    Inventory.PickupMessage "You picked up chemicals."
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        LT02 A -1
+        Stop
+    }
+}
+
+Actor DRPGLootChemicals2 : DRPGLootChemicals
+{
+    -COUNTITEM
+}
+
+// Hazardous Materials
+Actor DRPGLootHazardousMaterials : DRPGLoot
+{
+    Inventory.PickupMessage "You picked up hazardous materials."
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        LT03 A -1
+        Stop
+    }
+}
+
+// Anomalous Materials
+Actor DRPGLootAnomalousMaterials : DRPGLoot
+{
+    Scale 0.75
+    
+    Inventory.PickupMessage "You picked up anomalous materials."
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        LT04 A -1
+        Stop
+    }
+}
+
+// Briefcase Data
+Actor DRPGLootBriefcase : DRPGLoot
+{
+    Inventory.PickupMessage "You picked up briefcase data."
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        LT05 A -1
+        Stop
+    }
+}
+
+// Computer Data
+Actor DRPGLootComputerData : DRPGLoot
+{
+    Scale 0.33
+    
+    Inventory.PickupMessage "You picked up computer data."
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        LT06 A -1
+        Stop
+    }
+}
+
+// Gun Parts
+Actor DRPGLootGunParts : DRPGLoot
+{
+    Scale 0.75
+    
+    Inventory.PickupMessage "You picked up gun parts."
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        LT07 A -1
+        Stop
+    }
+}
+
+// Ammo Casings
+Actor DRPGLootAmmoCasings : DRPGLoot
+{
+    Scale 0.75
+    
+    Inventory.PickupMessage "You picked up ammo casings."
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        LT08 A -1
+        Stop
+    }
+}
+
+// Fuel Capsule
+Actor DRPGLootFuelCapsule : DRPGLoot
+{
+    Scale 0.75
+    
+    Inventory.PickupMessage "You picked up a fuel capsule."
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        LT09 A -1
+        Stop
+    }
+}
+
+// Scrap Metals
+Actor DRPGLootScrapMetals : DRPGLoot
+{
+    Scale 0.5
+    
+    Inventory.PickupMessage "You picked up scrap metals."
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        LT10 A -1
+        Stop
+    }
+}
+
+Actor DRPGLootScrapMetals2 : DRPGLootScrapMetals
+{
+    -COUNTITEM
+}
+
+// Scrap Electronics
+Actor DRPGLootScrapElectronics : DRPGLoot
+{
+    Scale 0.5
+    
+    Inventory.PickupMessage "You picked up scrap electronics."
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        LT11 A -1
+        Stop
+    }
+}
+
+// Experimental Parts
+Actor DRPGLootExperimentalParts : DRPGLoot
+{
+    Scale 0.75
+    
+    Inventory.PickupMessage "You picked up experimental parts."
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        LT12 AB 6
+        Goto Spawn+1
+    }
+}
+
+// Demon Artifact
+Actor DRPGLootDemonArtifact : DRPGLoot
+{
+    Scale 0.85
+    
+    Inventory.PickupMessage "You picked up a demon artifact."
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        LT13 A -1
+        Stop
+    }
+}

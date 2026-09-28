@@ -1,0 +1,124 @@
+
+actor DRPGAugCanister : Inventory
+{
+    Inventory.MaxAmount 100
+    Inventory.InterHubAmount 100
+    Inventory.PickupMessage "You picked up an augmentation canister."
+    Inventory.PickupSound "aug/pickup"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        AUGC A -1 Bright
+        Stop
+    }
+}
+
+actor DRPGAugUpgradeCanister : Inventory
+{
+    Inventory.MaxAmount 100
+    Inventory.InterHubAmount 100
+    Inventory.PickupMessage "You picked up an augmentation upgrade canister."
+    Inventory.PickupSound "aug/pickup"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        AUGU A -1 Bright
+        Stop
+    }
+}
+
+actor DRPGAugSlotUpgrade : Inventory
+{
+    Scale 0.5
+    
+    Inventory.MaxAmount 100
+    Inventory.InterHubAmount 100
+    Inventory.PickupMessage "You picked up an augmentation slot upgrade."
+    Inventory.PickupSound "aug/pickup"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        AUGU B -1 Bright
+        Stop
+    }
+}
+
+// Small Battery
+actor DRPGBatterySmall : CustomInventory
+{
+    Tag "Small battery (replenishes augmentation battery by 20%)"
+    
+    +INVBAR
+    
+    Inventory.MaxAmount 1000
+    Inventory.InterHubAmount 1000
+    Inventory.PickupMessage "You picked up a small battery."
+    Inventory.PickupSound "items/battery"
+    Inventory.UseSound "items/battery"
+    Inventory.Icon "BATT1"
+    
+    Scale 0.75
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        BATT A -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteWithResult("CheckCapacity")
+        Stop
+    Use:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddBattery", 0, CallACS("GetAugBatteryMax") / 5)
+        Stop
+    }
+}
+
+// Large Battery
+actor DRPGBatteryLarge : CustomInventory
+{
+    Tag "Large battery (replenishes augmentation battery by 50%)"
+    
+    +INVBAR
+    
+    Inventory.MaxAmount 1000
+    Inventory.InterHubAmount 1000
+    Inventory.PickupMessage "You picked up a large battery."
+    Inventory.PickupSound "items/battery"
+    Inventory.UseSound "items/battery"
+    Inventory.Icon "BATT2"
+    
+    Scale 0.75
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        BATT B -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteWithResult("CheckCapacity")
+        Stop
+    Use:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddBattery", 0, CallACS("GetAugBatteryMax") / 2)
+        Stop
+    }
+}
+
+// Augmentation Removal Tokens
+actor DRPGAugTokenStrength : Inventory  { Inventory.MaxAmount 4 }
+actor DRPGAugTokenDefense : Inventory   { Inventory.MaxAmount 5 }
+actor DRPGAugTokenVitality : Inventory  { Inventory.MaxAmount 2 }
+actor DRPGAugTokenEnergy : Inventory    { Inventory.MaxAmount 5 }
+actor DRPGAugTokenRegen : Inventory     { Inventory.MaxAmount 5 }
+actor DRPGAugTokenAgility : Inventory   { Inventory.MaxAmount 4 }
+actor DRPGAugTokenCapacity : Inventory  { Inventory.MaxAmount 3 }
+actor DRPGAugTokenLuck : Inventory      { Inventory.MaxAmount 5 }
+actor DRPGAugTokenBattery : Inventory   { Inventory.MaxAmount 5 }
+actor DRPGAugTokenSummoner : Inventory  { Inventory.MaxAmount 5 }

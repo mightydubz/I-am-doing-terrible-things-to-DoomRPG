@@ -1,0 +1,165 @@
+// Customized GameInfo
+gameinfo
+{
+    // Player Class
+    playerclasses = "DRPGDoomPlayer"
+
+    // Respawning
+    defaultrespawntime = 300
+    
+    // Drop Style
+    defaultdropstyle = 1
+
+    // Inventory
+    definventorymaxamount = 1000
+    
+    // Menus/UI
+    dimamount = 0
+    menufontcolor_title = "green"
+    menufontcolor_label = "red"
+    menufontcolor_value = "white"
+    menufontcolor_action = "white"
+    menufontcolor_header = "white"
+    menufontcolor_highlight = "green"
+    menufontcolor_selection = "green"
+    
+    // ZScript
+    AddEventHandlers = "DRPGZEHandler", "DRPGZInputHandler", "DRPGZHUD"
+}
+
+DoomEdNums
+{
+    11018 = OutpostSignMissionBBS2
+	11019 = OutpostSignShopS2
+	11017 = OutpostSignTransporter2
+	11020 = OutpostSignSkillComputer2
+	11021 = OutpostSignRechargePads2
+	11022 = OutpostSignEastArea2
+	11023 = OutpostSignItemRoulette2
+	11024 = OutpostSignArena2
+	11025 = OutpostSignArenaFar2
+	11026 = OutpostSignArenaWS2
+	11027 = OutpostSignArenaStart2
+	11028 = OutpostSignArenaReady2
+	11029 = OutpostSignShootingRange2
+	11030 = OutpostSignSale2
+	11031 = OutpostSignSurgeonCapsule2
+	11032 = OutpostSignDisassemblingDevice2    
+}
+
+// UAC Outpost
+map Outpost "UAC Outpost"
+{
+    levelnum = 999
+    cluster = 999
+    sky1 = "textures/outpost/outpost_sky.png"
+    
+    nointermission
+}
+
+cluster 999
+{
+    entertext = " "
+    pic = "PostPic"
+}
+
+// Allow players to start the game on the Outpost
+episode OUTPOST
+{
+    name = "UAC Outpost"
+    key = "U"
+    noskillmenu
+}
+
+// Arenas
+map DAM01 "Training Ground" {}
+map DAM02 "Throne Room" {}
+
+// Rejigger the skills
+clearskills
+
+// Easy skill
+skill easy
+{
+    damagefactor = 0.5
+    monsterhealth = 1.0
+    aggressiveness = 0.0
+    spawnfilter = normal
+
+    easybossbrain
+    easykey
+    autousehealth
+    
+    acsreturn = 1
+    
+    name = "Easy"
+    textcolor = "Green"
+}
+
+// Normal skill
+skill normal
+{
+    damagefactor = 1.0
+    monsterhealth = 1.0
+    aggressiveness = 0.25
+    spawnfilter = hard
+    
+    autousehealth
+
+    acsreturn = 2
+    
+    name = "Normal"
+    textcolor = "Yellow"
+}
+
+// Hard skill
+skill hard
+{
+    damagefactor = 1.25
+    monsterhealth = 1.25
+    aggressiveness = 0.5
+    spawnfilter = nightmare
+    
+    autousehealth
+    defaultskill
+
+    acsreturn = 3
+    
+    name = "Hard"
+    textcolor = "Orange"
+}
+
+// Nightmare skill
+skill nightmare
+{
+    damagefactor = 1.5
+    monsterhealth = 1.5
+    aggressiveness = 1.0
+    spawnfilter = nightmare
+    
+    autousehealth
+
+    acsreturn = 4
+    
+    name = "Nightmare"
+    MustConfirm = "'Towering, fierce, terrible. Nightmare made material!'"
+    textcolor = "Red"
+}
+
+// Hell skill
+skill hell
+{
+    damagefactor = 2.0
+    monsterhealth = 2.0
+    aggressiveness = 1.0
+    spawnfilter = nightmare
+
+    disablecheats
+    autousehealth
+    
+    acsreturn = 5
+    
+    name = "Hell"
+    MustConfirm = "'Steel yourself and remember: there can be no victory without madness!'"
+    textcolor = "Brick"
+}

@@ -1,0 +1,598 @@
+
+actor DRPGStimSmall : Inventory
+{
+    Scale 0.25
+    
+    Inventory.DefMaxAmount
+    Inventory.InterHubAmount 1000
+    Inventory.PickupMessage "You picked up a small stim."
+    Inventory.PickupSound "items/stim"
+    Inventory.UseSound "items/stim"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STIM B -1 Bright
+        Stop
+    }
+}
+
+actor DRPGStimMedium : DRPGStimSmall
+{
+    Scale 0.325
+
+    Inventory.PickupMessage "You picked up a medium stim."
+}
+
+actor DRPGStimLarge : DRPGStimSmall
+{
+    Scale 0.4
+    
+    Inventory.PickupMessage "You picked up a large stim."
+}
+
+actor DRPGStimXL : DRPGStimSmall
+{
+    Scale 0.5
+    
+    Inventory.PickupMessage "You picked up an extra large stim."
+}
+
+actor DRPGStimDetox : CustomInventory
+{
+    Scale 0.5
+    
+    Tag "Detox hypospray (removes all toxicity, status effects, and energy burnout)"
+    
+    +INVBAR
+
+    Inventory.DefMaxAmount
+    Inventory.InterHubAmount 1000
+    Inventory.PickupMessage "You picked up a detox hypospray."
+    Inventory.PickupSound "items/stim"
+    Inventory.UseSound "items/stim"
+    Inventory.Icon "STIMC"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STIM C -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteWithResult("CheckCapacity")
+        Stop
+    Use:
+        TNT1 A 0 ACS_NamedExecuteAlways("TossStim", 0)
+        TNT1 A 0 ACS_NamedExecuteAlways("AddToxicity", 0, -100)
+        TNT1 A 0 ACS_NamedExecuteAlways("ClearStatusEffects", 0)
+        TNT1 A 0 ACS_NamedExecuteAlways("ClearBurnout", 0)
+        Stop
+    UseFail:
+        TNT1 A 0
+        Fail
+    }
+}
+
+actor DRPGStimSmallTossed : DRPGStimSmall
+{
+    BounceType Classic
+    BounceFactor 0.25
+    WallBounceFactor 0.25
+    
+    +NOBLOCKMAP
+    +NOTELEPORT
+    +NOTRIGGER
+    +MOVEWITHSECTOR
+    +THRUACTORS
+    -SPECIAL
+    
+    States
+    {
+    Spawn:
+        STIM B 1
+    FadeOut:
+        STIM B 1 A_FadeOut(0.0025, true)
+        Loop
+    }
+}
+
+actor DRPGStimMediumTossed : DRPGStimMedium
+{
+    BounceType Classic
+    BounceFactor 0.25
+    WallBounceFactor 0.25
+    
+    +NOBLOCKMAP
+    +NOTELEPORT
+    +NOTRIGGER
+    +MOVEWITHSECTOR
+    +THRUACTORS
+    -SPECIAL
+    
+    States
+    {
+    Spawn:
+        STIM B 1
+    FadeOut:
+        STIM B 1 A_FadeOut(0.0025, true)
+        Loop
+    }
+}
+
+actor DRPGStimLargeTossed : DRPGStimLarge
+{
+    BounceType Classic
+    BounceFactor 0.25
+    WallBounceFactor 0.25
+    
+    +NOBLOCKMAP
+    +NOTELEPORT
+    +NOTRIGGER
+    +MOVEWITHSECTOR
+    +THRUACTORS
+    -SPECIAL
+    
+    States
+    {
+    Spawn:
+        STIM B 1
+    FadeOut:
+        STIM B 1 A_FadeOut(0.0025, true)
+        Loop
+    }
+}
+
+actor DRPGStimXLTossed : DRPGStimXL
+{
+    BounceType Classic
+    BounceFactor 0.25
+    WallBounceFactor 0.25
+    
+    +NOBLOCKMAP
+    +NOTELEPORT
+    +NOTRIGGER
+    +MOVEWITHSECTOR
+    +THRUACTORS
+    -SPECIAL
+    
+    States
+    {
+    Spawn:
+        STIM B 1
+    FadeOut:
+        STIM B 1 A_FadeOut(0.0025, true)
+        Loop
+    }
+}
+
+// Vials
+actor DRPGVialStrength : CustomInventory
+{
+    Scale 0.5
+    
+    Inventory.PickupMessage "You picked up a \cgstrength\c- vial."
+    Inventory.PickupSound "items/vial"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STVL A -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 0, 1)
+        Stop
+    }
+}
+
+actor DRPGVialDefense : CustomInventory
+{
+    Scale 0.5
+
+    Inventory.PickupMessage "You picked up a \cddefense\c- vial."
+    Inventory.PickupSound "items/vial"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STVL B -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 1, 1)
+        Stop
+    }
+}
+
+actor DRPGVialVitality : CustomInventory
+{
+    Scale 0.5
+
+    Inventory.PickupMessage "You picked up a \cavitality\c- vial."
+    Inventory.PickupSound "items/vial"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STVL C -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 2, 1)
+        Stop
+    }
+}
+
+actor DRPGVialEnergy : CustomInventory
+{
+    Scale 0.5
+
+    Inventory.PickupMessage "You picked up an \cnenergy\c- vial."
+    Inventory.PickupSound "items/vial"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STVL D -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 3, 1)
+        Stop
+    }
+}
+
+actor DRPGVialRegeneration : CustomInventory
+{
+    Scale 0.5
+
+    Inventory.PickupMessage "You picked up a \ctregeneration\c- vial."
+    Inventory.PickupSound "items/vial"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STVL E -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 4, 1)
+        Stop
+    }
+}
+
+actor DRPGVialAgility : CustomInventory
+{
+    Scale 0.5
+
+    Inventory.PickupMessage "You picked up an \ciagility\c- vial."
+    Inventory.PickupSound "items/vial"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STVL F -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 5, 1)
+        Stop
+    }
+}
+
+actor DRPGVialCapacity : CustomInventory
+{
+    Scale 0.5
+
+    Inventory.PickupMessage "You picked up a \chcapacity\c- vial."
+    Inventory.PickupSound "items/vial"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STVL G -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 6, 1)
+        Stop
+    }
+}
+
+actor DRPGVialLuck : CustomInventory
+{
+    Scale 0.5
+
+    Inventory.PickupMessage "You picked up a \cfluck\c- vial."
+    Inventory.PickupSound "items/vial"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STVL H -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 7, 1)
+        Stop
+    }
+}
+
+actor DRPGVialPurifier : CustomInventory
+{
+    Scale 0.5
+
+    Inventory.PickupMessage "You picked up a \ccpurifier\c- vial."
+    Inventory.PickupSound "items/vial"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STVL I -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 8, 1)
+        Stop
+    }
+}
+
+actor DRPGVialPotency : CustomInventory
+{
+    Scale 0.5
+
+    Inventory.PickupMessage "You picked up a \cjpotency\c- vial."
+    Inventory.PickupSound "items/vial"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STVL J -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 9, 1)
+        Stop
+    }
+}
+
+actor DRPGVialIndestructible : CustomInventory
+{
+    Scale 0.5
+
+    Inventory.PickupMessage "You picked up an \cqindestructibility\c- vial."
+    Inventory.PickupSound "items/vial"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STVL K -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 10, 1)
+        Stop
+    }
+}
+
+actor DRPGVialShadow : CustomInventory
+{
+    Scale 0.5
+
+    Inventory.PickupMessage "You picked up a \crshadow\c- vial."
+    Inventory.PickupSound "items/vial"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STVL L -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 11, 1)
+        Stop
+    }
+}
+
+actor DRPGVialInfinity : CustomInventory
+{
+    Scale 0.5
+
+    Inventory.PickupMessage "You picked up an \ckinfinity\c- vial."
+    Inventory.PickupSound "items/vial"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STVL M -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 12, 1)
+        Stop
+    }
+}
+
+actor DRPGVialChrono : CustomInventory
+{
+    Scale 0.5
+
+    Inventory.PickupMessage "You picked up a \cdchrono\c- vial."
+    Inventory.PickupSound "items/vial"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STVL N -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 13, 1)
+        Stop
+    }
+}
+
+actor DRPGVialAdrenaline : CustomInventory
+{
+    Scale 0.5
+
+    Inventory.PickupMessage "You picked up an \ctadrenaline\c- vial."
+    Inventory.PickupSound "items/vial"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STVL O -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 14, 1)
+        Stop
+    }
+}
+
+actor DRPGVialGravity : CustomInventory
+{
+    Scale 0.5
+
+    Inventory.PickupMessage "You picked up a \cigravity\c- vial."
+    Inventory.PickupSound "items/vial"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STVL P -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 15, 1)
+        Stop
+    }
+}
+
+actor DRPGVialVampire : CustomInventory
+{
+    Scale 0.5
+
+    Inventory.PickupMessage "You picked up a \cavampire\c- vial."
+    Inventory.PickupSound "items/vial"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STVL Q -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 16, 1)
+        Stop
+    }
+}
+
+actor DRPGVialRage : CustomInventory
+{
+    Scale 0.5
+
+    Inventory.PickupMessage "You picked up a \cmrage\c- vial."
+    Inventory.PickupSound "items/vial"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STVL R -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 17, 1)
+        Stop
+    }
+}
+
+actor DRPGVialMagnetic : CustomInventory
+{
+    Scale 0.5
+
+    Inventory.PickupMessage "You picked up a \ccmagnetic\c- vial."
+    Inventory.PickupSound "items/vial"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STVL S -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 18, 1)
+        Stop
+    }
+}
+
+// Stim Packages
+actor DRPGStimPackageStat : CustomInventory
+{
+    Scale 0.5
+
+    Inventory.PickupMessage "You picked up a stat stim package."
+    Inventory.PickupSound "items/vial"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STPA A -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 0, Random(1, 5))
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 1, Random(1, 5))
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 2, Random(1, 5))
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 3, Random(1, 5))
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 4, Random(1, 5))
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 5, Random(1, 5))
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 6, Random(1, 5))
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 7, Random(1, 5))
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 8, Random(1, 5))
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 9, Random(1, 5))
+        Stop
+    }
+}
+
+actor DRPGStimPackagePowerup : CustomInventory
+{
+    Scale 0.5
+
+    Inventory.PickupMessage "You picked up a power up stim package."
+    Inventory.PickupSound "items/vial"
+    
+    States
+    {
+    Spawn:
+        TNT1 A 0 NoDelay ACS_NamedExecuteAlways("ItemInit", 0)
+        STPA B -1 Bright
+        Stop
+    Pickup:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 10, Random(1, 5))
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 11, Random(1, 5))
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 12, Random(1, 5))
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 13, Random(1, 5))
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 14, Random(1, 5))
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 15, Random(1, 5))
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 16, Random(1, 5))
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 17, Random(1, 5))
+        TNT1 A 0 ACS_NamedExecuteAlways("AddCompound", 0, 18, Random(1, 5))
+        Stop
+    }
+}
+
+// Stim Powerups
+actor DRPGPowerStimIndestructible : PowerInvulnerable       { Powerup.Duration 4 -INVBAR }
+actor DRPGPowerStimShadow : PowerGhost                      { Powerup.Duration 4 -INVBAR }
+actor DRPGPowerStimInfinity2 : PowerupGiver {
+    +Inventory.AutoActivate
+    Powerup.Type PowerInfiniteAmmo
+    Powerup.Duration 4
+}
+actor DRPGPowerStimChrono : PowerTimeFreezer                { Powerup.Duration 4 -INVBAR }
+actor DRPGPowerStimGravity : PowerFlight                    { Powerup.Duration 4 -INVBAR }
+actor DRPGPowerStimVampire : PowerDrain                     { Powerup.Duration 4 -INVBAR }

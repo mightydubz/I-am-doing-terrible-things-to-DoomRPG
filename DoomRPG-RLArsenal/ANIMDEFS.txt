@@ -1,0 +1,439 @@
+// --------------------------------------------------
+// PLAYERS
+// 
+
+// Marine
+texture PMARA1
+	pic PMARA1 tics 6
+	pic PMARB1 tics 6
+	pic PMARC1 tics 6
+	pic PMARD1 tics 6
+
+// Scout
+texture PSCOA1
+	pic PSCOA1 tics 6
+	pic PSCOB1 tics 6
+	pic PSCOC1 tics 6
+	pic PSCOD1 tics 6
+
+// Technician
+texture PTECA1
+	pic PTECA1 tics 6
+	pic PTECB1 tics 6
+	pic PTECC1 tics 6
+	pic PTECD1 tics 6
+
+// Renegade
+texture PRENA1
+	pic PRENA1 tics 6
+	pic PRENB1 tics 6
+	pic PRENC1 tics 6
+	pic PREND1 tics 6
+
+// Demolitionist
+texture PDMOA1
+	pic PDMOA1 tics 6
+	pic PDMOB1 tics 6
+	pic PDMOC1 tics 6
+	pic PDMOD1 tics 6
+
+// --------------------------------------------------
+// WEAPONS
+// 
+
+// Nuclear BFG9000
+texture NUKBX0
+    pic NUKBX0 tics 105
+    pic NUKBY0 tics 5
+
+// Death's Gaze
+texture DGAZX0
+    pic DGAZX0 tics 8
+    pic DGAZY0 tics 8
+
+// Reality Distortion Array
+texture RD1NX0
+    pic RD1NX0 tics 2
+    pic RD1SX0 tics 2
+    pic RD1FX0 tics 2
+    pic RD1XX0 tics 2
+
+// --------------------------------------------------
+// ARMOR
+// 
+// This is fucking stupid
+
+// Green Armor
+texture ARM1A0
+    pic ARM1A0 tics 1
+    pic ARM1A0 tics 1
+
+// Blue Armor
+texture ARM2A0
+    pic ARM2A0 tics 1
+    pic ARM2A0 tics 1
+
+// Commando Armor
+texture ARM3A0
+    pic ARM3A0 tics 1
+    pic ARM3A0 tics 1
+
+// Cyber-Nano Security Armor
+texture CYN1A0
+    pic CYN1A0 tics 4
+    pic CYN1B0 tics 4
+    pic CYN1C0 tics 4
+ 
+// Cyber-Nano Combat Armor
+texture CYN2A0
+    pic CYN2A0 tics 4
+    pic CYN2B0 tics 4
+    pic CYN2C0 tics 4
+ 
+// Cyber-Nano Commando Armor
+texture CYN3A0
+    pic CYN3A0 tics 4
+    pic CYN3B0 tics 4
+    pic CYN3C0 tics 4
+
+// Fireshield
+texture FSHDA0
+    pic FSHDA0 tics 6
+    pic FSHDB0 tics 6
+
+// Ballastic Shield
+texture BSHDA0
+    pic BSHDA0 tics 6
+    pic BSHDB0 tics 6
+
+// Energy-Shielded Vest
+texture ESVAA0
+    pic ESVAA0 tics 6
+    pic ESVAB0 tics 6
+
+// Energy Shield
+texture ESHDA0
+    pic ESHDA0 tics 6
+    pic ESHDB0 tics 6
+
+// Plasma Shield
+texture PSHDA0
+    pic PSHDA0 tics 6
+    pic PSHDB0 tics 6
+
+// Rechargable Energy Shield
+texture RESHA0
+    pic RESHA0 tics 6
+    pic RESHB0 tics 6
+
+// Survival MediArmor
+texture SURVA0
+    pic SURVA0 tics 2
+    pic SURVB0 tics 2
+    pic SURVC0 tics 2
+    pic SURVD0 tics 2
+    pic SURVE0 tics 2
+    pic SURVF0 tics 2
+    pic SURVG0 tics 2
+    pic SURVH0 tics 2
+
+// Onyx-Modded Energy-Shielded Vest
+texture ONYAH0
+    pic ONYAH0 tics 4
+    pic ONYAI0 tics 4
+
+// Lava Armor
+texture LAVUA0
+    pic LAVUA0 tics 6
+    pic LAVUB0 tics 6
+    pic LAVUC0 tics 6
+    pic LAVUD0 tics 6
+
+// Shielded Armor
+texture SSHDA0
+    pic SSHDA0 tics 6
+    pic SSHDB0 tics 6
+
+// K-8 Matterstorm Harness
+texture K8MHA0
+    pic K8MHA0 tics 2
+    pic K8MHB0 tics 2
+    pic K8MHC0 tics 2
+    pic K8MHD0 tics 2
+    pic K8MHE0 tics 2
+    pic K8MHF0 tics 2
+
+// Jetpack
+texture JETPA0
+    pic JETPA0 tics 4
+    pic JETPB0 tics 2
+    pic JETPC0 tics 2
+    pic JETPB0 tics 2
+
+// Xaser Power-Armor
+texture XASPA0
+    pic XASPA0 tics 5
+    pic XASPB0 tics 5
+    pic XASPC0 tics 5
+    pic XASPB0 tics 5
+
+// Chronotrooper Armor
+texture CHROA0
+    pic CHROA0 tics 4
+    pic CHROB0 tics 4
+    pic CHROC0 tics 4
+    pic CHROB0 tics 4
+
+// --------------------------------------------------
+// POWERUPS
+// 
+
+// Light Amp
+texture PVISA0
+	pic PVISA0 tics 6
+	pic PVISB0 tics 6
+
+// Computer Area Map
+texture PMAPA0
+	pic PMAPA0 tics 6
+	pic PMAPB0 tics 6
+	pic PMAPC0 tics 6
+	pic PMAPD0 tics 6
+	pic PMAPC0 tics 6
+	pic PMAPB0 tics 6
+
+// Tracking Map
+texture MMAPA0
+    pic MMAPA0 tics 6
+    pic MMAPB0 tics 6
+    pic MMAPC0 tics 6
+    pic MMAPD0 tics 6
+    pic MMAPC0 tics 6
+    pic MMAPB0 tics 6
+
+// Tracking Map Inventory Icon
+texture MMAP
+    pic MMAP tics 6
+    pic MMAPB tics 6
+    pic MMAPC tics 6
+    pic MMAPD tics 6
+    pic MMAPC tics 6
+    pic MMAPB tics 6
+
+// Blueprint Computer
+texture BLUPA0
+    pic BLUPA0 tics 12
+    pic BLUPU0 tics 12
+    pic BLUPA0 tics 12
+    pic BLUPU0 tics 12
+    pic BLUPA0 tics 12
+    pic BLUPU0 tics 12
+    pic BLUPA0 tics 12
+    pic BLUPB0 tics 4
+    pic BLUPC0 tics 4
+    pic BLUPD0 tics 4
+    pic BLUPE0 tics 4
+    pic BLUPF0 tics 4
+    pic BLUPG0 tics 4
+    pic BLUPH0 tics 4
+    pic BLUPI0 tics 4
+    pic BLUPJ0 tics 4
+    pic BLUPK0 tics 4
+    pic BLUPL0 tics 4
+    pic BLUPM0 tics 4
+    pic BLUPN0 tics 4
+    pic BLUPO0 tics 4
+    pic BLUPP0 tics 4
+    pic BLUPQ0 tics 4
+    pic BLUPR0 tics 4
+    pic BLUPS0 tics 4
+    pic BLUPT0 tics 4
+
+// --------------------------------------------------
+// MODPACKS
+// 
+
+// Power Modpack
+texture PMODA0
+    pic PMODA0 tics 3
+    pic PMODB0 tics 3
+    pic PMODC0 tics 3
+    pic PMODD0 tics 3
+    pic PMODC0 tics 3
+    pic PMODB0 tics 3
+
+// Bulk Modpack
+texture BMODA0
+    pic BMODA0 tics 3
+    pic BMODB0 tics 3
+    pic BMODC0 tics 3
+    pic BMODD0 tics 3
+    pic BMODC0 tics 3
+    pic BMODB0 tics 3
+
+// Agility Modpack
+texture AMODA0
+    pic AMODA0 tics 3
+    pic AMODB0 tics 3
+    pic AMODC0 tics 3
+    pic AMODD0 tics 3
+    pic AMODC0 tics 3
+    pic AMODB0 tics 3
+
+// Technical Modpack
+texture TMODA0
+    pic TMODA0 tics 3
+    pic TMODB0 tics 3
+    pic TMODC0 tics 3
+    pic TMODD0 tics 3
+    pic TMODC0 tics 3
+    pic TMODB0 tics 3
+
+// Sniper Modpack
+texture SMODA0
+    pic SMODA0 tics 3
+    pic SMODB0 tics 3
+    pic SMODC0 tics 3
+    pic SMODD0 tics 3
+    pic SMODC0 tics 3
+    pic SMODB0 tics 3
+
+// Firestorm Modpack
+texture FMODA0
+    pic FMODA0 tics 3
+    pic FMODB0 tics 3
+    pic FMODC0 tics 3
+    pic FMODD0 tics 3
+    pic FMODC0 tics 3
+    pic FMODB0 tics 3
+
+// Onyx Modpack
+texture OMODA0
+    pic OMODA0 tics 3
+    pic OMODB0 tics 3
+    pic OMODC0 tics 3
+    pic OMODD0 tics 3
+    pic OMODC0 tics 3
+    pic OMODB0 tics 3
+
+// Nano Modpack
+texture NMODA0
+    pic NMODA0 tics 3
+    pic NMODB0 tics 3
+    pic NMODC0 tics 3
+    pic NMODD0 tics 3
+    pic NMODC0 tics 3
+    pic NMODB0 tics 3
+
+// Armor Modpack
+texture AMK1A0
+    pic AMK1A0 tics 3
+    pic AMK1B0 tics 3
+    pic AMK1C0 tics 3
+    pic AMK1D0 tics 3
+    pic AMK1C0 tics 3
+    pic AMK1B0 tics 3
+
+// --------------------------------------------------
+// CRAFT PARTS
+// 
+
+// Craft Parts Exotic
+texture CREXA
+    pic CREXA tics 3
+    pic CREXB tics 3
+    pic CREXC tics 3
+    pic CREXD tics 3
+    pic CREXE tics 3
+    pic CREXF tics 3
+    pic CREXG tics 3
+    pic CREXH tics 3
+    pic CREXI tics 3
+    pic CREXJ tics 3
+    pic CREXK tics 3
+    pic CREXL tics 3
+    pic CREXM tics 3
+
+// Craft Parts Unique
+texture CRUNA
+    pic CRUNA tics 3
+    pic CRUNB tics 3
+    pic CRUNC tics 3
+    pic CRUND tics 3
+    pic CRUNE tics 3
+    pic CRUNF tics 3
+    pic CRUNG tics 3
+    pic CRUNH tics 3
+    pic CRUNI tics 3
+    pic CRUNJ tics 3
+    pic CRUNK tics 3
+    pic CRUNL tics 3
+    pic CRUNM tics 3
+    pic CRUNN tics 3
+
+// --------------------------------------------------
+// BOOTS
+// 
+
+// Anti-Grav Steel Boots
+texture AGSBA0
+    pic AGSBA0 tics 3
+    pic AGSBB0 tics 3
+
+// Anti-Grav Protective Boots
+texture AGGBA0
+    pic AGGBA0 tics 3
+    pic AGGBB0 tics 3
+
+// Anti-Grav Plasteel Boots
+texture AGBBA0
+    pic AGBBA0 tics 3
+    pic AGBBB0 tics 3
+
+// Acid-Proof Boots
+texture ACPBA0
+    pic ACPBA0 tics 6
+    pic ACPBB0 tics 6
+    pic ACPBA0 tics 6
+    pic ACPBC0 tics 6
+
+// Shockwave Boots
+texture SHKBA0
+    pic SHKBA0 tics 1
+    pic SHKBB0 tics 1
+    pic SHKBC0 tics 1
+    pic SHKBD0 tics 1
+    pic SHKBE0 tics 1
+    pic SHKBF0 tics 1
+    pic SHKBG0 tics 1
+    pic SHKBH0 tics 1
+    pic SHKBI0 tics 1
+    pic SHKBJ0 tics 1
+
+// Enviro Boots
+texture ENVBA0
+    pic ENVBA0 tics 6
+    pic ENVBB0 tics 6
+
+// Lava Boots
+texture LAVBA0
+    pic LAVBA0 tics 6
+    pic LAVBB0 tics 6
+    pic LAVBC0 tics 6
+    pic LAVBD0 tics 6
+
+// --------------------------------------------------
+// SKULLS
+// 
+
+texture ISKLA0
+    pic ISKLA0 tics 6
+    pic ISKLB0 tics 6
+
+texture ISKLC0
+    pic ISKLC0 tics 6
+    pic ISKLD0 tics 6
+
+texture ISKLE0
+    pic ISKLE0 tics 6
+    pic ISKLF0 tics 6

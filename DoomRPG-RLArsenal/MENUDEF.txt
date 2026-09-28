@@ -1,0 +1,44 @@
+// --------------------------------------------------
+// GENERAL
+//
+
+OptionValue "ShopSpecialCategories"
+{
+    -1, "Any"
+    0, "\cgWeapons"
+    1, "\ceAmmo"
+    2, "\caHealth"
+    3, "\cdArmor"
+    4, "\cqPowerups"
+    5, "\cvShield Parts"
+    6, "\ckStims/Augs/Turret"
+    8, "\ctModpacks"
+    9, "\ccBoots"
+}
+
+OptionValue "LootTypes"
+{
+    0, "Adaptive"
+    1, "\caMap Level"
+    2, "\cfLuck Level"
+    3, "\ciDoomRL Arsenal"
+}
+
+OptionMenu "OptionsMenu"
+{
+    SubMenu "DoomRL Arsenal Options",   "DoomRLA"
+}
+
+// --------------------------------------------------
+// GAMEPAD CONTROL HELPER (GCH) SECTION
+//
+
+AddOptionMenu "Gamepad_Control_Helper"
+{
+	StaticText "DoomRLA Commands"
+	Command "Remove Armor", rl_removearmor_gch
+	Command "Remove Boots", rl_removeboots_gch
+	Command "Armor Special", rl_armorspecial_gch
+	Command "Special Item Dropper", rl_specialitemdropper_gch
+	StaticText " "
+}

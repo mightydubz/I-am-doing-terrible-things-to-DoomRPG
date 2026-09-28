@@ -1,0 +1,60 @@
+// Health Bonus
+actor RLHealthBonusRPG : DRPGHealthBonus Replaces RLHealthBonus {}
+
+// Stimpack
+actor RLStimpackRPG : DRPGStimpack Replaces RLStimpack {}
+
+// Medikit
+actor RLMedikitRPG : DRPGMedikit Replaces RLMedikit {}
+
+// Soulspheres
+ACTOR RLSoulsphere2 : DRPGSoulsphere replaces DRPGSoulsphere
+{
+    States
+    {
+	Pickup:
+		TNT1 A 0 ACS_NamedExecuteWithResult("AddHealthDirect", 100, 200)
+        TNT1 A 0 ACS_NamedExecuteWithResult("ClearStatusEffects")
+        TNT1 A 0 A_JumpIfInventory ("RLDemonicSetBonusActive", 1, "DemonicCharge")
+		Stop
+    DemonicCharge:
+        TNT1 A 0 A_GiveInventory ("RLDemonicCarapaceSupercharge", 1)
+        TNT1 A 0 A_Print("Demonic Carapace supercharged!")
+        TNT1 A 0
+        Stop
+    }
+}
+
+ACTOR RLSoulsphere3 : DRPGSoulsphere2 Replaces DRPGSoulsphere2
+{
+    States
+    {
+	Pickup:
+		TNT1 A 0 ACS_NamedExecuteWithResult("AddHealthDirect", 200, 200)
+        TNT1 A 0 ACS_NamedExecuteWithResult("ClearStatusEffects")
+        TNT1 A 0 A_JumpIfInventory ("RLDemonicSetBonusActive", 1, "DemonicCharge")
+		Stop
+    DemonicCharge:
+        TNT1 A 0 A_GiveInventory ("RLDemonicCarapaceSupercharge", 1)
+        TNT1 A 0 A_Print("Demonic Carapace supercharged!")
+        TNT1 A 0
+        Stop
+    }
+}
+
+ACTOR RLSoulsphere4 : DRPGSoulsphere3 Replaces DRPGSoulsphere3
+{
+    States
+    {
+	Pickup:
+		TNT1 A 0 ACS_NamedExecuteWithResult("AddHealth", 200, 200)
+        TNT1 A 0 ACS_NamedExecuteWithResult("ClearStatusEffects")
+        TNT1 A 0 A_JumpIfInventory ("RLDemonicSetBonusActive", 1, "DemonicCharge")
+		Stop
+    DemonicCharge:
+        TNT1 A 0 A_GiveInventory ("RLDemonicCarapaceSupercharge", 1)
+        TNT1 A 0 A_Print("Demonic Carapace supercharged!")
+        TNT1 A 0
+        Stop
+    }
+}

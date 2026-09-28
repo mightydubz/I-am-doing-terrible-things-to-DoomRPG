@@ -1,0 +1,1156 @@
+// CREDITS
+// --------------------------------------------------
+pointlight CREDITSGREEN
+{
+	color 0.0 0.5 0.0
+	size 9
+}
+
+pointlight CREDITSBLUE
+{
+	color 0.0 0.0 0.5
+	size 9
+}
+
+pointlight CREDITSYELLOW
+{
+	color 0.5 0.425 0.0
+	size 9
+}
+
+pointlight CREDITSRED
+{
+	color 0.5 0.0 0.0
+	size 9
+}
+
+pointlight CREDITSPURPLE
+{
+	color 0.5 0.0 0.5
+	size 9
+}
+
+pointlight CREDITSORANGE
+{
+	color 0.5 0.25 0.0
+	size 9
+}
+
+pointlight CREDITSSILVER
+{
+	color 0.5 0.5 0.5
+	size 9
+}
+
+pointlight CREDITSGOLD
+{
+	color 1.0 0.8 0.0
+	size 9
+}
+
+object DRPGCredits1		{ frame CREDA { light CREDITSGREEN } }
+object DRPGCredits5 	{ frame CREDB { light CREDITSBLUE } }
+object DRPGCredits10 	{ frame CREDC { light CREDITSYELLOW } }
+object DRPGCredits20	{ frame CREDD { light CREDITSRED } }
+object DRPGCredits50	{ frame CREDE { light CREDITSPURPLE } }
+object DRPGCredits100	{ frame CREDF { light CREDITSORANGE } }
+object DRPGCredits250	{ frame CREDG { light CREDITSSILVER } }
+object DRPGCredits500	{ frame CREDH { light CREDITSGOLD } }
+object DRPGCredits1000
+{
+	frame CREDA 	    { light CREDITSGREEN }
+	frame CREDB 	    { light CREDITSBLUE }
+	frame CREDC 	    { light CREDITSYELLOW }
+	frame CREDD 	    { light CREDITSRED }
+	frame CREDE 	    { light CREDITSPURPLE }
+	frame CREDF 	    { light CREDITSORANGE }
+	frame CREDH 	    { light CREDITSSILVER }
+	frame CREDG 	    { light CREDITSGOLD }
+}
+
+/* TOKENS
+// --------------------------------------------------
+pointlight STATTOKEN
+{
+	color 0.5 0.0 0.0
+	size 12
+}
+
+pointlight STATCAPTOKEN
+{
+	color 0.5 0.425 0.0
+	size 12
+}
+
+pointlight SKILLTOKEN
+{
+	color 0.25 0.5 0.0
+	size 12
+}
+
+object DRPGStatToken 			{ frame TOKA { light STATTOKEN } }
+object DRPGSmallStatToken 		{ frame TOKA { light STATTOKEN } }
+object DRPGBigStatToken			{ frame TOKA { light STATTOKEN } }
+object DRPGStatCapToken			{ frame TOKB { light STATCAPTOKEN } }
+object DRPGSmallStatCapToken	{ frame TOKB { light STATCAPTOKEN } }
+object DRPGBigStatCapToken 		{ frame TOKB { light STATCAPTOKEN } }
+object DRPGSkillToken 			{ frame TOKC { light SKILLTOKEN } }
+object DRPGSmallSkillToken 		{ frame TOKC { light SKILLTOKEN } }
+object DRPGBigSkillToken 		{ frame TOKC { light SKILLTOKEN } }
+object DRPGMegaToken
+{
+	frame TOKA                  { light STATTOKEN } 
+	frame TOKB                  { light STATCAPTOKEN }
+	frame TOKC                  { light SKILLTOKEN } 
+}
+object DRPGBigMegaToken
+{
+	frame TOKA                  { light STATTOKEN }
+	frame TOKB                  { light STATCAPTOKEN }
+	frame TOKC                  { light SKILLTOKEN }
+} */
+
+// HEALTH
+// --------------------------------------------------
+
+pulselight HEALTHBONUS
+{
+	color 0.0 0.0 0.6
+	size 16
+	secondarySize 18
+	interval 2.0
+}
+
+pointlight SOULSPHERE
+{
+	color 0.0 0.0 0.65
+	offset 0.0 16.0 0.0
+	size 32
+}
+
+pointlight SOULSPHERE2
+{
+	color 0.0 0.65 0.0
+	offset 0.0 16.0 0.0
+	size 32
+}
+
+pointlight SOULSPHERE3
+{
+	color 0.65 0.0 0.0
+	offset 0.0 16.0 0.0
+	size 32
+}
+
+pointlight 1UP
+{
+	color 0.0 1.0 0.0
+	offset 0.0 26.0 0.0
+	size 32
+}
+
+pointlight 3UP
+{
+	color 0.0 0.0 1.0
+	offset 0.0 26.0 0.0
+	size 32
+}
+
+pointlight 5UP
+{
+	color 1.0 0.0 0.0
+	offset 0.0 26.0 0.0
+	size 32
+}
+
+pulselight MEGASPHERE
+{
+	color 0.746 0.48 0.292
+	offset 0.0 36.0 0.0
+	size 32
+	secondarysize 48
+	subtractive 1
+	interval 1.0
+}
+
+// Health Bonus
+object DRPGHealthBonus  	    { frame BON1 { light HEALTHBONUS } }
+object DRPGHealthBonus2  	    { frame BON1 { light HEALTHBONUS } }
+object DRPGArmorBonusReplacer  	{ frame BON1 { light HEALTHBONUS } }
+
+// Soulspheres
+object DRPGSoulSphere 		    { frame SOUL { light SOULSPHERE } }
+object DRPGSoulSphere2 		    { frame SOUL { light SOULSPHERE2 } }
+object DRPGSoulSphere3 		    { frame SOUL { light SOULSPHERE3 } }
+
+// 1-Ups
+object DRPG1Up 		            { frame P1UP { light 1UP } }
+object DRPG3Up 		            { frame P3UP { light 3UP } }
+object DRPG5Up 		            { frame P5UP { light 5UP } }
+
+// Megasphere
+object DRPGMegaSphere		    { frame MEGA { light MEGASPHERE } }
+
+// EP CAPSULE
+// --------------------------------------------------
+
+pointlight EPCAPSULE
+{
+	color 0.25 0.5 0.5
+	size 9
+}
+
+pointlight LITTLEEPCAPSULE
+{
+	color 0.25 0.5 0.5
+	size 7
+}
+
+pointlight BIGEPCAPSULE
+{
+	color 0.25 0.5 0.5
+	size 12
+}
+
+object DRPGEPCapsule    	{ frame EPUP { light EPCAPSULE } }
+object DRPGLittleEPCapsule 	{ frame EPUP { light LITTLEEPCAPSULE } }
+object DRPGBigEPCapsule 	{ frame EPUP { light BIGEPCAPSULE } }
+
+// ARMOR
+// --------------------------------------------------
+
+// Armor Bonus
+pulselight ARMORBONUS
+{
+	color 0.0 0.3 0.0
+	size 12
+	secondarySize 16
+	interval 1.0
+	dontlightself 1
+}
+
+object DRPGArmorBonus              { frame BON2 { light ARMORBONUS } }
+
+// Green Armor
+pulselight GREENARMOR
+{
+	color 0.025 0.5 0.05
+	size 16
+	secondarysize 20
+	interval 1.0
+}
+
+object DRPGGreenArmor               { frame ARM1 { light GREENARMOR } }
+object DRPGReinforcedGreenArmor     { frame ARX1 { light GREENARMOR } }
+
+// Blue Armor
+pulselight BLUEARMOR
+{
+	color 0.125 0.125 0.75
+	size 16
+	secondarysize 20
+	interval 1.0
+}
+
+object DRPGBlueArmor                { frame ARM2 { light BLUEARMOR } }
+object DRPGReinforcedBlueArmor      { frame ARX2 { light BLUEARMOR } }
+
+// Yellow Armor
+pulselight YELLOWARMOR
+{
+	color 0.5 0.5 0.1
+	size 16
+	secondarysize 20
+	interval 1.0
+}
+
+object DRPGYellowArmor              { frame ARM3 { light YELLOWARMOR } }
+object DRPGReinforcedYellowArmor    { frame ARX3 { light YELLOWARMOR } }
+
+// Red Armor
+pulselight REDARMOR
+{
+	color 0.5 0.1 0.033
+	size 16
+	secondarysize 20
+	interval 1.0
+}
+
+object DRPGRedArmor                 { frame ARM4 { light REDARMOR } }
+object DRPGReinforcedRedArmor       { frame ARX4 { light REDARMOR } }
+
+// White Armor
+pulselight WHITEARMOR
+{
+	color 0.5 0.5 0.5
+	size 16
+	secondarysize 20
+	interval 1.0
+}
+
+object DRPGWhiteArmor               { frame ARM5 { light WHITEARMOR } }
+object DRPGReinforcedWhiteArmor     { frame ARX5 { light WHITEARMOR } }
+
+// POWERUPS
+// --------------------------------------------------
+
+// Invulnerability Sphere
+pulselight INVULN
+{
+	color 0.0 0.65 0.0
+	size 40
+	secondarySize 42
+	interval 2.0
+	offset 0 16 0
+}
+
+pointlight INVULNCHARGE
+{
+	color 0.0 0.65 0.0
+	size 24
+}
+
+pointlight BLURSPHERE1
+{
+	color 1.0 0.0 0.0
+	size 40
+	offset 0 16 0
+}
+
+pointlight BLURSPHERE2
+{
+	color 0.0 0.0 1.0
+	size 32
+	offset 0 16 0
+}
+
+pointlight BLURSPHERE3
+{
+	color 0.0 0.0 1.0
+	size 24
+	offset 0 16 0
+}
+
+pointlight BLURSPHERE4
+{
+	color 0.0 0.0 1.0
+	size 16
+	offset 0 16 0
+}
+
+pointlight BLURSPHERE5
+{
+	color 0.0 0.0 1.0
+	size 8
+	offset 0 16 0
+}
+
+pointlight INVISCHARGE
+{
+	color 0.0 0.0 0.65
+	size 24
+}
+
+pointlight TIMESPHERE
+{
+	color 0.0 0.65 0.0
+	offset 0 20 0
+	size 24
+}
+
+pointlight REGENSPHERE
+{
+	color 0.75 0.0 1.0
+	offset 0 24 0
+	size 24
+}
+
+pointlight WINGS
+{
+	color 0.75 0.375 0.0
+	offset 0 12 0
+	size 24
+}
+
+object DRPGInvulnerabilitySphere    { frame PINV { light INVULN } }
+object DRPGInvulnerabilityCharge 	{ frame CRG2 { light INVULNCHARGE } }
+object DRPGBlurSphere
+{
+	frame PINS                      { light BLURSPHERE1 }
+
+	frame PINSA                     { light BLURSPHERE2 }
+	frame PINSB                     { light BLURSPHERE3 }
+	frame PINSC                     { light BLURSPHERE4 }
+	frame PINSD                     { light BLURSPHERE5 }
+}
+object DRPGInvisibilityCharge 		{ frame CRG1 { light INVISCHARGE } }
+object DRPGTimeSphere 				{ frame TIME { light TIMESPHERE } }
+object DRPGRegenSphere				{ frame REGN { light REGENSPHERE } }
+object DRPGWings					{ frame WING { light WINGS } }
+
+// IMMUNITY CRYSTAL
+// --------------------------------------------------
+
+pointlight IMMUNITYCRYSTALMELEE
+{
+	color 0.33 0.33 0.33
+    offset 0 32 0
+	size 512
+}
+
+pointlight IMMUNITYCRYSTALBULLET
+{
+	color 1.0 1.0 1.0
+    offset 0 32 0
+	size 512
+}
+
+pointlight IMMUNITYCRYSTALFIRE
+{
+	color 1.0 0.0 0.0
+    offset 0 32 0
+	size 512
+}
+
+pointlight IMMUNITYCRYSTALPLASMA
+{
+	color 0.0 0.0 1.0
+    offset 0 32 0
+	size 512
+}
+
+pointlight IMMUNITYCRYSTALLIGHTNING
+{
+	color 0.0 0.0 0.5
+    offset 0 32 0
+	size 512
+}
+
+pointlight IMMUNITYCRYSTALTOXIC
+{
+	color 0.0 0.5 0.0
+    offset 0 32 0
+	size 512
+}
+
+pointlight IMMUNITYCRYSTALRADIATION
+{
+	color 0.0 1.0 0.0
+    offset 0 32 0
+	size 512
+}
+
+pointlight IMMUNITYCRYSTALDEBRIS
+{
+	color 1.0 1.0 1.0
+    offset 0 32 0
+	size 128
+    subtractive 1
+}
+
+object DRPGImmunityCrystalMelee     { frame CRYSA { light IMMUNITYCRYSTALMELEE } }
+object DRPGImmunityCrystalBullet    { frame CRYSB { light IMMUNITYCRYSTALBULLET } }
+object DRPGImmunityCrystalFire      { frame CRYSC { light IMMUNITYCRYSTALFIRE } }
+object DRPGImmunityCrystalPlasma    { frame CRYSD { light IMMUNITYCRYSTALPLASMA } }
+object DRPGImmunityCrystalLightning { frame CRYSE { light IMMUNITYCRYSTALLIGHTNING } }
+object DRPGImmunityCrystalToxic     { frame CRYSF { light IMMUNITYCRYSTALTOXIC } }
+object DRPGImmunityCrystalRadiation { frame CRYSG { light IMMUNITYCRYSTALRADIATION } }
+object DRPGImmunityCrystalDebris    { frame CRYSX { light IMMUNITYCRYSTALDEBRIS } }
+
+// SKILLS
+// --------------------------------------------------
+
+pointlight FORCEWALL
+{
+	color 1.0 1.0 1.0
+	offset 0 32 0
+	size 32
+}
+
+pointlight TLOCBALL
+{
+	color 0.0 1.0 0.0
+	size 40
+}
+
+flickerlight TLOCBALL_X1
+{
+	color 0.2 1.0 0.2
+	size 40
+	secondarySize 44
+	chance 0.3
+}
+
+flickerlight TLOCBALL_X2
+{
+	color 0.3 1.0 0.3
+	size 52
+	secondarySize 56
+	chance 0.3
+}
+
+flickerlight TLOCBALL_X3
+{
+	color 0.5 1.0 0.5
+	size 60
+	secondarySize 64
+	chance 0.3
+}
+
+flickerlight TLOCBALL_X4
+{
+	color 0.2 0.7 0.2
+	size 28
+	secondarySize 32
+	chance 0.3
+}
+
+flickerlight TLOCBALL_X5
+{
+	color 0.1 0.3 0.1
+	size 24
+	secondarySize 28
+	chance 0.3
+}
+
+object DRPGForceWall		{ frame FFLD { light FORCEWALL } }
+object DRPGTranslocateBall
+{
+	frame BFS1A             { light TLOCBALL }
+	frame BFS1B             { light TLOCBALL }
+	
+	frame BFE1A             { light TLOCBALL_X1 }
+	frame BFE1B             { light TLOCBALL_X2 }
+	frame BFE1C             { light TLOCBALL_X3 }
+	frame BFE1D             { light TLOCBALL_X1 }
+	frame BFE1E             { light TLOCBALL_X4 }
+	frame BFE1F             { light TLOCBALL_X5 }
+}
+
+// AURAS
+// --------------------------------------------------
+
+pointlight REDAURA
+{
+	color 0.5 0.0 0.0
+	size 48
+}
+
+pointlight GREENAURA
+{
+	color 0.0 0.5 0.0
+	size 48
+}
+
+pointlight WHITEAURA
+{
+	color 0.5 0.5 0.5
+	size 48
+}
+
+pointlight PINKAURA
+{
+	color 0.5 0.25 0.25
+	size 48
+}
+
+pointlight CYANAURA
+{
+	color 0.26 0.42 0.5
+	size 48
+}
+
+pointlight PURPLEAURA
+{
+	color 0.125 0.0 0.5
+	size 48
+}
+
+pointlight ORANGEAURA
+{
+	color 0.5 0.25 0.0
+	size 48
+}
+
+pointlight BLUEAURA
+{
+	color 0.0 0.0 0.5
+	size 48
+}
+
+pointlight YELLOWAURA
+{
+	color 0.5 0.5 0.0
+	size 48
+}
+
+pointlight BLACKAURA
+{
+	color 0.5 0.5 0.5
+	size 48
+	subtractive 1
+}
+
+pointlight FRIENDLYAURA
+{
+	color 0.0 0.325 0.0
+	size 48
+}
+
+pointlight REDAURAINDICATOR
+{
+	color 1.0 0.0 0.0
+	size 16
+}
+
+pointlight GREENAURAINDICATOR
+{
+	color 0.0 1.0 0.0
+	size 16
+}
+
+pointlight WHITEAURAINDICATOR
+{
+	color 1.0 1.0 1.0
+	size 16
+}
+
+pointlight PINKAURAINDICATOR
+{
+	color 1.0 0.5 0.5
+	size 16
+}
+
+pointlight CYANAURAINDICATOR
+{
+	color 0.52 0.84 1.0
+	size 16
+}
+
+pointlight PURPLEAURAINDICATOR
+{
+	color 0.25 0.0 1.0
+	size 16
+}
+
+pointlight ORANGEAURAINDICATOR
+{
+	color 1.0 0.5 0.0
+	size 16
+}
+
+pointlight BLUEAURAINDICATOR
+{
+	color 0.0 0.0 1.0
+	size 16
+}
+
+pointlight YELLOWAURAINDICATOR
+{
+	color 1.0 1.0 0.0
+	size 16
+}
+
+pointlight BLACKAURAINDICATOR
+{
+	color 1.0 1.0 1.0
+	size 16
+	subtractive 1
+}
+
+object DRPGRedAura 				{ frame TNT1 { light REDAURA } }
+object DRPGGreenAura 			{ frame TNT1 { light GREENAURA } }
+object DRPGWhiteAura 			{ frame TNT1 { light WHITEAURA } }
+object DRPGPinkAura 			{ frame TNT1 { light PINKAURA } }
+object DRPGCyanAura 			{ frame TNT1 { light CYANAURA } }
+object DRPGPurpleAura 			{ frame TNT1 { light PURPLEAURA } }
+object DRPGOrangeAura 			{ frame TNT1 { light ORANGEAURA } }
+object DRPGBlueAura 			{ frame TNT1 { light BLUEAURA } }
+object DRPGYellowAura 			{ frame TNT1 { light YELLOWAURA } }
+object DRPGBlackAura 			{ frame TNT1 { light BLACKAURA } }
+object DRPGFriendlyAura			{ frame TNT1 { light FRIENDLYAURA } }
+/*
+object DRPGRedAuraIndicator 	{ frame SAURA { light REDAURAINDICATOR } }
+object DRPGGreenAuraIndicator 	{ frame SAURB { light GREENAURAINDICATOR } }
+object DRPGWhiteAuraIndicator 	{ frame SAURJ { light WHITEAURAINDICATOR } }
+object DRPGPinkAuraIndicator 	{ frame SAURC { light PINKAURAINDICATOR } }
+object DRPGCyanAuraIndicator 	{ frame SAURD { light CYANAURAINDICATOR } }
+object DRPGPurpleAuraIndicator 	{ frame SAURE { light PURPLEAURAINDICATOR } }
+object DRPGOrangeAuraIndicator 	{ frame SAURF { light ORANGEAURAINDICATOR } }
+object DRPGBlueAuraIndicator 	{ frame SAURG { light BLUEAURAINDICATOR } }
+object DRPGYellowAuraIndicator 	{ frame SAURH { light YELLOWAURAINDICATOR } }
+object DRPGBlackAuraIndicator 	{ frame SAURI { light BLACKAURAINDICATOR } }
+*/
+
+// SHIELDS
+// --------------------------------------------------
+
+pointlight SHIELDBOOSTER
+{
+	color 0.25 0.5 1.0
+	size 16
+	offset 0 16 0
+}
+
+object DRPGShieldBooster { frame SBST { light SHIELDBOOSTER} }
+
+// KEYS
+// --------------------------------------------------
+
+pulselight REDKEY
+{
+	color 0.6 0.0 0.0
+	size 16
+	secondarySize 18
+	interval 2.0
+}
+
+pulselight YELLOWKEY
+{
+	color 0.6 0.6 0.0
+	size 16
+	secondarySize 18
+	interval 2.0
+}
+
+pulselight BLUEKEY
+{
+	color 0.0 0.0 0.6
+	size 16
+	secondarySize 18
+	interval 2.0
+}
+
+object DRPGRedCard 		    { frame RKEY { light REDKEY } }
+object DRPGRedSkull 		{ frame RSKU { light REDKEY } }
+object DRPGYellowCard 		{ frame YKEY { light YELLOWKEY } }
+object DRPGYellowSkull 	    { frame YSKU { light YELLOWKEY } }
+object DRPGBlueCard 		{ frame BKEY { light BLUEKEY } }
+object DRPGBlueSkull 		{ frame BSKU { light BLUEKEY } }
+
+// EVENT
+// --------------------------------------------------
+
+pointlight BOMBRADIATIONGLOW
+{
+    color 0.0 1.0 0.0
+    size 5120
+}
+
+pulselight EXPERIMENTTANK
+{
+    offset 0 36 0
+	color 0.5 0.1 0.0
+	size 64
+	secondarySize 64
+	interval 2.0
+}
+
+object DRPGExperimentTank
+{
+    frame ETNKA { light EXPERIMENTTANK }
+}
+
+pulselight LPRADBARREL1
+{
+    offset 0 24 0
+	color 0.1 0.5 0.2
+	size 32
+	secondarySize 48
+	interval 2.0
+}
+
+flickerlight2 LPRADBARREL2
+{
+    offset 0 8 0
+	color 0.2 1.0 0.4
+	size 64
+	secondarySize 80
+	interval 1.0114
+}
+
+flickerlight BROKENLAMPZAP
+{
+    offset 0 32 0
+	color 0.7 0.7 1.0
+	size 64
+	secondarySize 80
+	chance 0.5
+}
+
+object DRPGLowPowerRadiationBarrel
+{
+    frame RBARA { light LPRADBARREL1 }
+    frame RBARC { light LPRADBARREL2 }
+}
+
+// PROJECTILES
+// --------------------------------------------------
+
+object Rocket
+{
+    frame MISLA { light ROCKET    }
+
+    frame MISLB { light ROCKET_X1 }
+    frame MISLC { light ROCKET_X2 }
+    frame MISLD { light ROCKET_X3 }
+}
+
+object DRPGPlasmaBall
+{
+    frame PLSSA { light PLASMABALL }
+    frame PLSSB { light PLASMABALL }
+
+    frame PLSEA { light PLASMA_X1 }
+    frame PLSEB { light PLASMA_X2 }
+    frame PLSEC { light PLASMA_X2 }
+    frame PLSED { light PLASMA_X3 }
+    frame PLSEE { light PLASMA_X4 }
+}
+
+object DRPGBFGBall
+{
+    frame BFS1A { light BFGBALL }
+    frame BFS1B { light BFGBALL }
+
+    frame BFE1A { light BFGBALL_X1 }
+    frame BFE1B { light BFGBALL_X2 }
+    frame BFE1C { light BFGBALL_X3 }
+    frame BFE1D { light BFGBALL_X1 }
+    frame BFE1E { light BFGBALL_X4 }
+    frame BFE1F { light BFGBALL_X5 }
+}
+
+object DRPGDoomImpBall
+{
+    frame BAL1A { light IMPBALL    }
+    frame BAL1B { light IMPBALL    }
+
+    frame BAL1C { light IMPBALL_X1 }
+    frame BAL1D { light IMPBALL_X2 }
+    frame BAL1E { light IMPBALL_X3 }
+}
+
+object DRPGCacodemonBall
+{
+    frame BAL2A { light CACOBALL }
+    frame BAL2B { light CACOBALL }
+
+    frame BAL2C { light CACOBALL_X1 }
+    frame BAL2D { light CACOBALL_X2 }
+    frame BAL2E { light CACOBALL_X3 }
+}
+
+object DRPGBaronBall
+{
+    frame BAL7A { light BARONBALL    }
+    frame BAL7B { light BARONBALL    }
+
+    frame BAL7C { light BARONBALL_X1 }
+    frame BAL7D { light BARONBALL_X2 }
+    frame BAL7E { light BARONBALL_X3 }
+}
+
+object DRPGFatShot
+{
+    frame MANFA { light IMPBALL   }
+    frame MANFB { light IMPBALL   }
+
+    frame MISLB { light ROCKET_X1 }
+    frame MISLC { light ROCKET_X2 }
+    frame MISLD { light ROCKET_X3 }
+}
+
+object DRPGRevenantTracer
+{
+    frame FATBA { light TRACER    }
+    frame FATBB { light TRACER    }
+
+    frame FBXPA { light TRACER_X1 }
+    frame FBXPB { light TRACER_X2 }
+    frame FBXPC { light TRACER_X3 }
+}
+
+object DRPGArchvileFire
+{
+    frame FIREA { light ARCHFIRE1 }
+    frame FIREB { light ARCHFIRE2 }
+    frame FIREC { light ARCHFIRE3 }
+    frame FIRED { light ARCHFIRE4 }
+    frame FIREE { light ARCHFIRE5 }
+    frame FIREF { light ARCHFIRE6 }
+    frame FIREG { light ARCHFIRE7 }
+    frame FIREH { light ARCHFIRE8 }
+}
+
+// MARINES
+// --------------------------------------------------
+
+pulselight ANTIDEMONFIELD
+{
+	color 1.0 0.0 0.0
+	size 64
+	secondarySize 128
+	interval 0.25
+}
+
+Object DRPGAntiDemonFieldParticle { frame ADFP { light ANTIDEMONFIELD } }
+
+// RADIATION GLOW
+// --------------------------------------------------
+
+flickerlight RADIATIONGLOW
+{
+    color 0.0 1.0 0.0
+    size 24
+    secondarysize 32
+}
+
+flickerlight2 RADIATIONGLOW2
+{
+    color 0.0 1.0 0.0
+    size 32
+    secondarysize 48
+    interval 0.001
+}
+
+object DRPGRadiationGlow    { frame TNT1 { light RADIATIONGLOW  } }
+object DRPGRadiationGlow2   { frame TNT1 { light RADIATIONGLOW2 } }
+
+// HELL UNLEASHED
+// --------------------------------------------------
+
+pointlight PANDORABOXWHITE
+{
+    color 1.0 1.0 1.0
+    size 64
+}
+
+pointlight PANDORABOXRED
+{
+    color 1.0 0.0 0.0
+    size 256
+    subtractive 1
+}
+
+object DRPGPandoraBox
+{
+    frame PBOXR { light PANDORABOXWHITE }
+    frame PBOXM { light PANDORABOXRED   }
+    frame PBOXN { light PANDORABOXRED   }
+    frame PBOXO { light PANDORABOXRED   }
+    frame PBOXP { light PANDORABOXRED   }
+    frame PBOXQ { light PANDORABOXRED   }
+}
+
+
+// TURRET
+// -------------------------------------------------- 
+
+pointlight TURRETBULLET
+{
+    color 1.0 0.8 0.2
+    size 32
+}
+
+pointlight TURRETROCKET
+{
+    color 1.0 0.2 0.0
+    size 32
+}
+
+pointlight TURRETPLASMA
+{
+    color 0.0 0.1 1.0
+    size 32
+}
+
+pointlight TURRETRAILGUN
+{
+    color 0.0 1.0 0.0
+    size 32
+}
+
+flickerlight BROKENTURRETSPARK
+{
+    offset 0 16 0
+	color 0.7 0.7 1.0
+	size 32
+	secondarySize 48
+	chance 0.5
+}
+
+Object DRPGPortableTurret
+{
+    frame PTURB { light TURRETBULLET   }
+    frame PTURC { light TURRETROCKET   }
+    frame PTURD { light TURRETPLASMA   }
+    frame PTURE { light TURRETRAILGUN  }
+}
+
+// OUTPOST STUFF
+// --------------------------------------------------
+
+// Signs
+pulselight OUTPOSTSIGN
+{
+	color 0.0 0.5 1.0
+	size 100
+	secondarySize 50
+	interval 5
+}
+
+// Stuff
+pulselight OUTPOSTALARM
+{
+	color 1.0 0.25 0.0
+	size 128
+	secondarySize 96
+	interval 0.4571428
+}
+
+pointlight OUTPOSTLAMP1
+{
+	color 1.0 0.125 0.125
+	size 64
+	offset 0 44 0
+}
+
+// MISSION LOOT
+// --------------------------------------------------
+
+pointlight LOOTCHEMICALS
+{
+    color 0.1 0.3 0.0
+    size 8
+}
+
+Object DRPGLootChemicals
+{
+    frame LT02 { light LOOTCHEMICALS }
+}
+
+pulselight LOOTANOMALOUS
+{
+    color 0.35 0.5 0.0
+    size 12
+	secondarySize 24
+	interval 3.0
+}
+
+Object DRPGLootAnomalousMaterials
+{
+    frame LT04 { light LOOTANOMALOUS }
+}
+
+pointlight LOOTPARTS1
+{
+    color 0.5 0.0 0.0
+    size 16
+}
+
+pointlight LOOTPARTS2
+{
+    color 0.5 0.25 0.0
+    size 16
+}
+
+Object DRPGLootExperimentalParts
+{
+    frame LT12A { light LOOTPARTS1 }
+    frame LT12B { light LOOTPARTS2 }
+}
+
+pulselight LOOTDEMONS
+{
+    color 1.0 0.125 0.0
+    size 12
+	secondarySize 24
+	interval 3.0
+}
+
+Object DRPGLootDemonArtifact
+{
+    frame LT13 { light LOOTDEMONS }
+}
+
+pointlight FIREPARTICLEGLOW
+{
+    color 1.0 0.33 0.0
+    size 32
+}
+
+pointlight FIREPARTICLEGLOW2
+{
+    color 0.66 0.22 0.0
+    size 21
+}
+
+pointlight FIREPARTICLEGLOW3
+{
+    color 0.33 0.11 0.0
+    size 10
+}
+
+Object DRPGDoomsdayFireRain
+{
+    frame BRBAA { light FIREPARTICLEGLOW }
+    frame BRBAB { light FIREPARTICLEGLOW }
+    frame BRBAC { light FIREPARTICLEGLOW }
+    
+    frame BRBAD { light FIREPARTICLEGLOW2 }
+    frame BRBAE { light FIREPARTICLEGLOW2 }
+    frame BRBAF { light FIREPARTICLEGLOW2 }
+    
+    frame BRBAG { light FIREPARTICLEGLOW3 }
+    frame BRBAH { light FIREPARTICLEGLOW3 }
+    frame BRBAI { light FIREPARTICLEGLOW3 }
+}
+
+// Outpost Textures
+brightmap texture "textures/outpost/outpost_whitetechwall128redlight.png" { map "graphics/outpostbm_whitetechwall128redlight.png" }
+
+// SHADERS
+// --------------------------------------------------
+
+HardwareShader Texture Shield2 
+{
+	Shader "shaders/ShieldWarp.fp"
+	Speed 0.5
+}
+
+HardwareShader Texture AugDView
+{
+	Shader "shaders/GlitchRows.fp"
+	Speed 0.33
+}
+
+HardwareShader Texture Aura
+{
+	Shader "shaders/AuraIcon.fp"
+	Speed 4.0
+}
+
+HardwareShader Texture SHCAJ0
+{
+	Shader "shaders/ShieldPulse.fp"
+	Speed 4.0
+}
+
+HardwareShader Sprite SHCAJ0
+{
+	Shader "shaders/ShieldPulse.fp"
+	Speed 4.0
+}
+
+HardwareShader Texture SHCAO0
+{
+	Shader "shaders/ShieldColorPulse.fp"
+	Speed 0.5
+}
+
+HardwareShader Sprite SHCAO0
+{
+	Shader "shaders/ShieldColorPulse.fp"
+	Speed 0.5
+}

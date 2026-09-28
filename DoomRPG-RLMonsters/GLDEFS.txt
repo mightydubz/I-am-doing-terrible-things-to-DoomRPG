@@ -1,0 +1,843 @@
+object RLImpFireball
+{
+    frame BAL1A { light IMPBALL }
+    frame BAL1B { light IMPBALL }
+
+    frame BAL1C { light IMPBALL_X1 }
+    frame BAL1D { light IMPBALL_X2 }
+    frame BAL1E { light IMPBALL_X3 }
+}
+
+object RLCacodemonPlasmaBall
+{
+    frame BAL2A { light CACOBALL }
+    frame BAL2B { light CACOBALL }
+
+    frame BAL2C { light CACOBALL_X1 }
+    frame BAL2D { light CACOBALL_X2 }
+    frame BAL2E { light CACOBALL_X3 }
+}
+
+object RLHellKnightPlasmaBall
+{
+    frame BAL7A { light BARONBALL }
+    frame BAL7B { light BARONBALL }
+
+    frame BAL7C { light BARONBALL_X1 }
+    frame BAL7D { light BARONBALL_X2 }
+    frame BAL7E { light BARONBALL_X3 }
+}
+
+object RLBaronOfHellPlasmaBall
+{
+    frame BAL7A { light BARONBALL }
+    frame BAL7B { light BARONBALL }
+
+    frame BAL7C { light BARONBALL_X1 }
+    frame BAL7D { light BARONBALL_X2 }
+    frame BAL7E { light BARONBALL_X3 }
+}
+
+object RLMancubusFireball
+{
+    frame MANFA { light IMPBALL }
+    frame MANFB { light IMPBALL }
+
+    frame MISLB { light ROCKET_X1 }
+    frame MISLC { light ROCKET_X2 }
+    frame MISLD { light ROCKET_X3 }
+}
+
+object RLRevenantMissile
+{
+    frame FATBA { light TRACER }
+    frame FATBB { light TRACER }
+
+    frame FBXPA { light TRACER_X1 }
+    frame FBXPB { light TRACER_X2 }
+    frame FBXPC { light TRACER_X3 }
+}
+
+object RLArachnotronPlasmaBallMkII
+{
+    frame PL2B { light ARACHPLAS }
+    frame APLSA { light ARACHPLAS }
+    frame APLSB { light ARACHPLAS }
+
+    frame APBXA { light ARACHPLAS_X1 }
+    frame APBXB { light ARACHPLAS_X2 }
+    frame APBXC { light ARACHPLAS_X2 }
+    frame APBXD { light ARACHPLAS_X3 }
+    frame APBXE { light ARACHPLAS_X4 }
+}
+
+object RLCyberdemonRocket
+{
+    frame MISLA { light ROCKET }
+
+    frame MISLB { light ROCKET_X1 }
+    frame MISLC { light ROCKET_X2 }
+    frame MISLD { light ROCKET_X3 }
+}
+
+flickerlight RARCHFIRE1
+{
+    color 1.0 0.0 0.0
+    size 24
+    secondarySize 32
+    chance 0.3
+    offset 0 8 0
+}
+
+flickerlight RARCHFIRE2
+{
+    color 1.0 0.0 0.0
+    size 40
+    secondarySize 48
+    chance 0.3
+    offset 0 24 0
+}
+
+flickerlight RARCHFIRE3
+{
+    color 1.0 0.0 0.0
+    size 64
+    secondarySize 72
+    chance 0.3
+    offset 0 32 0
+}
+
+flickerlight RARCHFIRE4
+{
+    color 0.8 0.0 0.0
+    size 64
+    secondarySize 72
+    chance 0.3
+    offset 0 40 0
+}
+
+flickerlight RARCHFIRE5
+{
+    color 0.8 0.0 0.0
+    size 64
+    secondarySize 72
+    chance 0.3
+    offset 0 48 0
+}
+
+flickerlight RARCHFIRE6
+{
+    color 0.6 0.0 0.0
+    size 48
+    secondarySize 56
+    chance 0.3
+    offset 0 64 0
+}
+
+flickerlight RARCHFIRE7
+{
+    color 0.4 0.0 0.0
+    size 32
+    secondarySize 40
+    chance 0.3
+    offset 0 72 0
+}
+
+flickerlight RARCHFIRE8
+{
+    color 0.2 0.0 0.0
+    size 16
+    secondarySize 24
+    chance 0.3
+    offset 0 80 0
+}
+
+object RLResurrectionFire
+{
+    frame RVFXA { light RARCHFIRE1 }
+    frame RVFXB { light RARCHFIRE2 }
+    frame RVFXC { light RARCHFIRE3 }
+    frame RVFXD { light RARCHFIRE4 }
+    frame RVFXE { light RARCHFIRE5 }
+    frame RVFXF { light RARCHFIRE6 }
+    frame RVFXG { light RARCHFIRE7 }
+    frame RVFXH { light RARCHFIRE8 }
+}
+
+pointlight NIMPBALL
+{
+    color 1.0 0.0 0.0
+    size 64
+}
+
+flickerlight NIMPBALL_X1
+{
+    color 0.7 0.0 0.0
+    size 80
+    secondarySize 88
+    chance 0.25
+}
+
+flickerlight NIMPBALL_X2
+{
+    color 0.4 0.0 0.0
+    size 96
+    secondarySize 104
+    chance 0.25
+}
+
+flickerlight NIMPBALL_X3
+{
+    color 0.2 0.0 0.0
+    size 112
+    secondarySize 120
+    chance 0.25
+}
+
+object RLNightmareImpFireball
+{
+    frame NIMBA { light NIMPBALL }
+    frame NIMBB { light NIMPBALL }
+
+    frame NIMBC { light NIMPBALL_X1 }
+    frame NIMBD { light NIMPBALL_X2 }
+    frame NIMBE { light NIMPBALL_X3 }
+}
+
+pointlight SHADOW
+{
+	color 0.1 0.1 0.1
+	size 32
+	subtractive 1
+	dontlightself 1
+}
+
+object RLNightmareDemonTeleportEffect { frame NDEM { light SHADOW } }
+
+pointlight NSPECTREGLOW
+{
+	color 0.0 0.1 0.0
+	size 32
+}
+
+object RLNightmareSpectreTrail { frame NSPE { light NSPECTREGLOW } }
+
+pointlight NSOUL
+{
+	color 1.0 1.0 1.0
+	size 16
+	subtractive 1
+	dontlightself 1
+}
+
+pointlight NSOUL_X1
+{
+	color 1.0 1.0 1.0
+	size 14
+	subtractive 1
+	dontlightself 1
+}
+
+pointlight NSOUL_X2
+{
+	color 1.0 1.0 1.0
+	size 12
+	subtractive 1
+	dontlightself 1
+}
+
+pointlight NSOUL_X3
+{
+	color 1.0 1.0 1.0
+	size 10
+	subtractive 1
+	dontlightself 1
+}
+
+pointlight NSOUL_X4
+{
+	color 1.0 1.0 1.0
+	size 8
+	subtractive 1
+	dontlightself 1
+}
+
+pointlight NSOUL_X5
+{
+	color 1.0 1.0 1.0
+	size 6
+	subtractive 1
+	dontlightself 1
+}
+
+pointlight NSOUL_X6
+{
+	color 1.0 1.0 1.0
+	size 4
+	subtractive 1
+	dontlightself 1
+}
+
+pointlight NSOUL_X7
+{
+	color 1.0 1.0 1.0
+	size 2
+	subtractive 1
+	dontlightself 1
+}
+
+object RLNightmareLostSoulRPG
+{
+	frame NSOLA { light NSOUL }
+	frame NSOLB { light NSOUL }
+	frame NSOLC { light NSOUL }
+	frame NSOLD { light NSOUL }
+	frame NSOLE { light NSOUL }
+	frame NSOLF { light NSOUL }
+	frame NSOLG { light NSOUL }
+	frame NSOLH { light NSOUL }
+	frame NSOLP { light NSOUL }
+	frame NSOLQ { light NSOUL }
+	frame NSOLR { light NSOUL }
+
+	frame NSOLI { light NSOUL_X1 }
+	frame NSOLJ { light NSOUL_X2 }
+	frame NSOLK { light NSOUL_X3 }
+	frame NSOLL { light NSOUL_X4 }
+	frame NSOLM { light NSOUL_X5 }
+	frame NSOLN { light NSOUL_X6 }
+	frame NSOLO { light NSOUL_X7 }
+}
+
+pointlight NCACOBALL1
+{
+	color 0.0 0.0 1.0
+	size 32
+}
+
+pointlight NCACOBALL2
+{
+	color 1.0 1.0 1.0
+	size 32
+}
+
+pointlight NCACOBALL_X1
+{
+	color 0.5 0.5 1.0
+	size 48
+}
+
+pointlight NCACOBALL_X2
+{
+	color 0.5 0.5 1.0
+	size 64
+}
+
+pointlight NCACOBALL_X3
+{
+	color 0.5 0.5 1.0
+	size 80
+}
+
+object RLNightmareCacodemonPlasmaBall
+{
+	frame NCCBA { light NCACOBALL1 } 
+	frame NCCBB { light NCACOBALL1 } 
+	frame NCCBC { light NCACOBALL2 } 
+	frame NCCBD { light NCACOBALL1 } 
+	frame NCCBE { light NCACOBALL1 } 
+	frame NCCBF { light NCACOBALL2 } 
+	frame NCCBG { light NCACOBALL1 } 
+	frame NCCBH { light NCACOBALL1 } 
+
+	frame NCCBI { light NCACOBALL_X1 } 
+	frame NCCBJ { light NCACOBALL_X1 } 
+	frame NCCBK { light NCACOBALL_X1 } 
+	frame NCCBL { light NCACOBALL_X2 } 
+	frame NCCBM { light NCACOBALL_X2 } 
+	frame NCCBN { light NCACOBALL_X2 } 
+	frame NCCBO { light NCACOBALL_X3 } 
+	frame NCCBP { light NCACOBALL_X3 } 
+}
+
+object RLNightmareHellKnightPlasmaBall
+{
+    frame BAL7A { light BARONBALL }
+    frame BAL7B { light BARONBALL }
+
+    frame BAL7C { light BARONBALL_X1 }
+    frame BAL7D { light BARONBALL_X2 }
+    frame BAL7E { light BARONBALL_X3 }
+}
+
+pointlight NBARONFLAME1
+{
+	color 0.25 1.0 0.25
+	size 32
+}
+
+pointlight NBARONFLAME2
+{
+	color 0.25 1.0 0.25
+	size 24
+}
+
+pointlight NBARONFLAME3
+{
+	color 0.25 1.0 0.25
+	size 16
+}
+
+object RLNightmareBaronFlames
+{
+	frame NBAXA { light NBARONFLAME1 }
+	frame NBAXB { light NBARONFLAME1 }
+	frame NBAXC { light NBARONFLAME1 }
+	frame NBAXD { light NBARONFLAME1 }
+	frame NBAXE { light NBARONFLAME2 }
+	frame NBAXF { light NBARONFLAME2 }
+	frame NBAXG { light NBARONFLAME2 }
+	frame NBAXH { light NBARONFLAME3 }
+}
+
+object RLNightmareBaronFlames2
+{
+	frame NBAXA { light NBARONFLAME1 }
+	frame NBAXB { light NBARONFLAME1 }
+	frame NBAXC { light NBARONFLAME1 }
+	frame NBAXD { light NBARONFLAME1 }
+	frame NBAXE { light NBARONFLAME2 }
+	frame NBAXF { light NBARONFLAME2 }
+	frame NBAXG { light NBARONFLAME2 }
+	frame NBAXH { light NBARONFLAME3 }
+}
+
+object RLNightmareBaronExplosion
+{
+    frame NBABC { light BARONBALL_X1 }
+    frame NBABD { light BARONBALL_X2 }
+    frame NBABE { light BARONBALL_X3 }
+}
+
+pointlight NBARONEXPLODE1
+{
+	color 0.25 1.0 0.25
+	size 48
+}
+
+pointlight NBARONEXPLODE2
+{
+	color 0.25 1.0 0.25
+	size 56
+}
+
+pointlight NBARONEXPLODE3
+{
+	color 0.25 1.0 0.25
+	size 64
+}
+
+object RLNightmareBaronExplosion2
+{
+	frame NBABC { light NBARONEXPLODE1 }
+	frame NBABD { light NBARONEXPLODE2 }
+	frame NBABE { light NBARONEXPLODE3 }
+}
+
+pointlight NSPIDERBALL
+{
+	color 0.25 1.0 0.25
+	size 32
+}
+
+pointlight NSPIDERBALL_X1
+{
+	color 0.25 1.0 0.25
+	size 24
+}
+
+pointlight NSPIDERBALL_X2
+{
+	color 0.25 1.0 0.25
+	size 16
+}
+
+pointlight NSPIDERBALL_X3
+{
+	color 0.25 1.0 0.25
+	size 8
+}
+
+object RLNightmareArachnotronPlasmaBall
+{
+	frame PPCSC { light NSPIDERBALL }
+	frame PPCSD { light NSPIDERBALL }
+	
+	frame BBB1A { light NSPIDERBALL_X1 }
+	frame BBB1B { light NSPIDERBALL_X1 }
+	frame BBB1C { light NSPIDERBALL_X1 }
+	frame BBB1D { light NSPIDERBALL_X2 }
+	frame BBB1E { light NSPIDERBALL_X3 }
+}
+
+pointlight NPAINBALL
+{
+	color 1.0 0.25 0.0
+	size 32
+}
+
+object RLNightmareElementalLavaBall
+{
+	frame BAL3A { light NPAINBALL }
+	frame BAL3B { light NPAINBALL }
+
+	frame BAL3C { light ROCKET_X1 }
+	frame BAL3D { light ROCKET_X2 }
+	frame BAL3E { light ROCKET_X3 }
+}
+
+pointlight NREVSKULL1
+{
+	color 1.0 0.0 0.0
+	size 32
+}
+
+pointlight NREVSKULL2
+{
+	color 1.0 0.0 0.0
+	size 24
+}
+
+object RLNightmareRevenantPlasmaSkull
+{
+	frame NREBA { light NREVSKULL1 }
+	frame NREBB { light NREVSKULL1 }
+	
+	frame NREBC { light NREVSKULL2 }
+	frame NREBD { light NREVSKULL2 }
+	frame NREBE { light NREVSKULL2 }
+	frame NREBF { light NREVSKULL2 }
+	frame NREBG { light NREVSKULL2 }
+	frame NREBH { light NREVSKULL2 }
+	frame NREBI { light NREVSKULL2 }
+	frame NREBJ { light NREVSKULL2 }
+	frame NREBK { light NREVSKULL2 }
+	frame NREBL { light NREVSKULL2 }
+}
+
+object RLNightmareRevenantPlasmaSkull2
+{
+	frame NREBA { light NREVSKULL1 }
+	frame NREBB { light NREVSKULL1 }
+	
+	frame NREBC { light NREVSKULL2 }
+	frame NREBD { light NREVSKULL2 }
+	frame NREBE { light NREVSKULL2 }
+	frame NREBF { light NREVSKULL2 }
+	frame NREBG { light NREVSKULL2 }
+	frame NREBH { light NREVSKULL2 }
+	frame NREBI { light NREVSKULL2 }
+	frame NREBJ { light NREVSKULL2 }
+	frame NREBK { light NREVSKULL2 }
+	frame NREBL { light NREVSKULL2 }
+}
+
+pointlight NREVDEATHWAVE
+{
+	color 1.0 0.0 0.0
+	size 64
+}
+
+object RLNightmareRevenantDeathWave { frame NRXP { light NREVDEATHWAVE } }
+
+pointlight RBFGBALL
+{
+    color 1.0 0.0 0.0
+    size 80
+}
+
+flickerlight RBFGBALL_X1
+{
+    color 1.2 0.2 0.2
+    size 80
+    secondarySize 88
+    chance 0.3
+}
+
+flickerlight RBFGBALL_X2
+{
+    color 1.0 0.3 0.3
+    size 104
+    secondarySize 112
+    chance 0.3
+}
+
+flickerlight RBFGBALL_X3
+{
+    color 1.0 0.5 0.5
+    size 120
+    secondarySize 128
+    chance 0.3
+}
+
+flickerlight RBFGBALL_X4
+{
+    color 0.7 0.2 0.2
+    size 56
+    secondarySize 64
+    chance 0.3
+}
+
+flickerlight RBFGBALL_X5
+{
+    color 0.3 0.1 0.1
+    size 48
+    secondarySize 56
+    chance 0.3
+}
+
+object RLNightmareMancubusPlasmaball
+{
+    frame AFX3A { light RBFGBALL }
+    frame AFX3B { light RBFGBALL }
+    frame AFX3C { light RBFGBALL }
+    frame AFX3D { light RBFGBALL }
+    frame AFX3E { light RBFGBALL }
+    frame AFX3F { light RBFGBALL }
+    frame AFX3G { light RBFGBALL }
+    frame AFX3H { light RBFGBALL }
+
+    frame AFX3I { light RBFGBALL_X1 }
+    frame AFX3J { light RBFGBALL_X2 }
+    frame AFX3K { light RBFGBALL_X3 }
+    frame AFX3L { light RBFGBALL_X1 }
+    frame AFX3M { light RBFGBALL_X4 }
+    frame AFX3N { light RBFGBALL_X5 }
+}
+
+pointlight NARCHFLOORGLOW
+{
+	color 1.0 0.75 0.0
+	size 96
+}
+
+object RLNightmareArchvileFloorGlow { frame NVAT { light NARCHFLOORGLOW } }
+
+flickerlight OARCHFIRE1
+{
+    color 1.0 0.5 0.0
+    size 24
+    secondarySize 32
+    chance 0.3
+    offset 0 8 0
+}
+
+flickerlight ORARCHFIRE2
+{
+    color 1.0 0.5 0.0
+    size 40
+    secondarySize 48
+    chance 0.3
+    offset 0 24 0
+}
+
+flickerlight ORARCHFIRE3
+{
+    color 1.0 0.5 0.0
+    size 64
+    secondarySize 72
+    chance 0.3
+    offset 0 32 0
+}
+
+flickerlight ORARCHFIRE4
+{
+    color 0.8 0.4 0.0
+    size 64
+    secondarySize 72
+    chance 0.3
+    offset 0 40 0
+}
+
+flickerlight ORARCHFIRE5
+{
+    color 0.8 0.4 0.0
+    size 64
+    secondarySize 72
+    chance 0.3
+    offset 0 48 0
+}
+
+flickerlight ORARCHFIRE6
+{
+    color 0.6 0.3 0.0
+    size 48
+    secondarySize 56
+    chance 0.3
+    offset 0 64 0
+}
+
+flickerlight ORARCHFIRE7
+{
+    color 0.4 0.2 0.0
+    size 32
+    secondarySize 40
+    chance 0.3
+    offset 0 72 0
+}
+
+flickerlight ORARCHFIRE8
+{
+    color 0.2 0.1 0.0
+    size 16
+    secondarySize 24
+    chance 0.3
+    offset 0 80 0
+}
+
+object RLNightmareResurrectionFire
+{
+    frame NVRXA { light ORARCHFIRE1 }
+    frame NVRXB { light ORARCHFIRE2 }
+    frame NVRXC { light ORARCHFIRE3 }
+    frame NVRXD { light ORARCHFIRE4 }
+    frame NVRXE { light ORARCHFIRE5 }
+    frame NVRXF { light ORARCHFIRE6 }
+    frame NVRXG { light ORARCHFIRE7 }
+    frame NVRXH { light ORARCHFIRE8 }
+}
+
+object RLNightmareCyberdemonPlasmaBall
+{
+	frame PPCSC { light NSPIDERBALL }
+	frame PPCSD { light NSPIDERBALL }
+	
+	frame BBB1A { light NSPIDERBALL_X1 }
+	frame BBB1B { light NSPIDERBALL_X1 }
+	frame BBB1C { light NSPIDERBALL_X1 }
+	frame BBB1D { light NSPIDERBALL_X2 }
+	frame BBB1E { light NSPIDERBALL_X3 }
+}
+
+pointlight NCYBERPARTCORE
+{
+	color 0.2 0.2 1.0
+	size 32
+}
+
+object RLParticleBeamCore { frame BBAL { light NCYBERPARTCORE } }
+
+object RLCyberImpPlasmaBall
+{
+    frame PLSSA { light PLASMABALL }
+    frame PLSSB { light PLASMABALL }
+
+    frame PLSEA { light PLASMA_X1 }
+    frame PLSEB { light PLASMA_X2 }
+    frame PLSEC { light PLASMA_X2 }
+    frame PLSED { light PLASMA_X3 }
+    frame PLSEE { light PLASMA_X4 }
+}
+
+pointlight MECHTRECHARGE
+{
+	color 0.5 0.5 0.5
+	size 24
+}
+
+object RLMechtreElectricDischarge { frame CZAP { light MECHTRECHARGE } }
+
+object RLCyberneticLostSoulRPG
+{
+    frame CSOLC { light ROCKET_X1 }
+    frame CSOLD { light ROCKET_X2 }
+    frame CSOLE { light ROCKET_X3 }
+}
+
+object RLBruiserMissile
+{
+    frame FBRSA { light ROCKET }
+
+    frame BAL3C { light ROCKET_X1 }
+    frame BAL3D { light ROCKET_X2 }
+    frame BAL3E { light ROCKET_X3 }
+}
+
+pointlight MINIMISSILE
+{
+    color 1.0 0.7 0.0
+    size 24
+}
+
+flickerlight MINIMISSILE_X1
+{
+    color 1.0 0.7 0.0
+    size 32
+    secondarySize 40
+    chance 0.3
+}
+
+flickerlight MINIMISSILE_X2
+{
+    color 0.5 0.1 0.0
+    size 40
+    secondarySize 44
+    chance 0.3
+}
+
+object RLTechnoLordMiniMissile
+{
+    frame FLARA { light MINIMISSILE }
+
+    frame FREXA { light MINIMISSILE_X1 }
+    frame FREXB { light MINIMISSILE_X2 }
+    frame FREXC { light MINIMISSILE_X3 }
+}
+
+pointlight BBFGBALL
+{
+    color 0.0 0.0 1.0
+    size 40
+}
+flickerlight BBFGBALL_X1
+{
+    color 0.2 0.2 0.7
+    size 56
+    secondarySize 64
+    chance 0.3
+}
+
+flickerlight BBFGBALL_X2
+{
+    color 0.1 0.1 0.3
+    size 48
+    secondarySize 56
+    chance 0.3
+}
+
+flickerlight BBFGBALL_X3
+{
+    color 0.1 0.1 0.3
+    size 32
+    secondarySize 36
+    chance 0.3
+}
+
+object RLVolacbusPlasmaBall
+{
+	frame WPLZA { light BBFGBALL }
+	frame WPLZB { light BBFGBALL }
+
+	frame WPLZC { light BBFGBALL_X1 }
+	frame WPLZD { light BBFGBALL_X2 }
+	frame WPLZE { light BBFGBALL_X3 }
+}
+
+object RLSpiderOvermindMiniMissile
+{
+    frame FLARA { light MINIMISSILE }
+
+    frame FREXA { light MINIMISSILE_X1 }
+    frame FREXB { light MINIMISSILE_X2 }
+    frame FREXC { light MINIMISSILE_X3 }
+}
