@@ -1,0 +1,13 @@
+SCRIPT FUCKERY:
+
+itemdata.c is where the shop/s products data is located
+
+as you remove bits from menu – remember defs.h line 357 – reduce number of menu items.
+
+RPG.c line 374 and Stats,h line 33 – where the functions are -actually- called (in this case where the mod calls for player and enemy stats so you can actually do damage, among other things)
+
+Skills – Transport is 2801-3086
+
+Magnetize above transport, 2574
+
+Monster credits drop is handled in Monsters.c line 2809, and is worked out via their capacity stat (groan) that raises as they level up (GROOOOAAAAANNNN). I don't want this. This sucks. This is doodoo.
